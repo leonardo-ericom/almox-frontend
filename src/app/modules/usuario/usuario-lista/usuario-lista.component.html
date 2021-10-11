@@ -1,0 +1,36 @@
+<div class="p-grid">
+    <div class="p-col-12">
+
+        <p-toast></p-toast>
+
+        <p-panel styleClass="p-mb-4 p-p-0">
+            <p-toolbar styleClass="p-p-0 p-m-0">
+                <ng-template pTemplate="left">
+                    <h2>Usuários</h2>
+                </ng-template>
+
+                <ng-template pTemplate="right">
+                    <button pButton pRipple label="Excluir" icon="pi pi-trash" class="p-button-danger p-mr-2 p-mb-3" (click)="excluirUsuariosSelecionados()" [disabled]="!usuariosSelecionados || usuariosSelecionados.length < 1"></button>
+                    <button pButton pRipple label="Novo" icon="pi pi-plus" class="p-mr-1 p-mb-3" routerLink="/usuarios/novo"></button>
+                </ng-template>
+            </p-toolbar>
+        </p-panel>
+
+        <div class="card">
+            <app-usuario-lista-filtro #filtroComponent (buscar)="buscarUsuarios($event.filtro)" [tiposUsuarios]="tiposUsuarios"></app-usuario-lista-filtro>
+            <app-tabela-crud
+                [colunas]="colunas"
+                [dados]="usuarios"
+                [exibirAcaoEditar]="exibirAcaoEditar"
+                [exibirAcaoExcluir]="exibirAcaoExcluir"
+                (selecionadosChange)="usuariosSelecionados=$event"
+                (visualizar)="visualizarUsuario($event)"
+                (editar)="editarUsuario($event)"
+                (excluir)="excluirUsuario($event)"
+            ></app-tabela-crud>
+        </div>
+    </div>
+</div>
+
+<p-confirmDialog [style]="{width: '450px'}"></p-confirmDialog>
+<p-toast></p-toast>

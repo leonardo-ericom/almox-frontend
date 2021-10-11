@@ -1,0 +1,87 @@
+<p-table
+    #dt
+    responsiveLayout="scroll"
+    [value]="dados"
+    [rows]="quantidadeLinhas"
+    [paginator]="paginacao"
+    [(selection)]="selecionados"
+    (onRowSelect)="selecionadosChange()"
+    (onRowUnselect)="selecionadosChange()"
+    (onHeaderCheckboxToggle)="selecionadosChange()"
+    [columns]="colunas"
+    [rowHover]="efeitoLinhaSelecionada"
+    dataKey="id"
+    styleClass="p-datatable-customers p-datatable-striped p-datatable-gridlines p-datatable-sm"
+    currentPageReportTemplate="Mostando {first} ao {last} de {totalRecords} registros"
+    [showCurrentPageReport]="true"
+>
+    <ng-template
+        pTemplate="header"
+        let-columns
+    >
+        <tr>
+            <th style="width: 3rem">
+                <p-tableHeaderCheckbox></p-tableHeaderCheckbox>
+            </th>
+            <th
+                *ngFor="let coluna of columns"
+                [pSortableColumn]="coluna.campo"
+            >
+                <p-sortIcon [field]="coluna.campo"></p-sortIcon>
+                {{ coluna.titulo }}
+            </th>
+            <th style="text-align: center;">Ações</th>
+        </tr>
+    </ng-template>
+    <ng-template
+        pTemplate="body"
+        let-rowData
+        let-columns="columns"
+    >
+        <tr>
+            <td>
+                <p-tableCheckbox [value]="rowData"></p-tableCheckbox>
+            </td>
+            <td *ngFor="let col of columns">
+                <div [style]="'text-align: ' + col.textAlign">
+                    <span class='{{ renderizarConteudo(rowData, col).styleClass }}'>
+                        {{ renderizarConteudo(rowData, col).conteudo }}
+                    </span>
+                </div>
+            </td>
+            <td>
+                <div style="vertical-align: middle;text-align: center;">
+                    <p-button
+                        *ngIf="exibirAcaoVisualizar(rowData)"
+                        icon="pi pi-eye"
+                        class="p-mr-2 p-mb-2"
+                        pTooltip="Visualizar"
+                        tooltipPosition="bottom"
+                        (click)="handleOnVisualizar(rowData)"
+                    ></p-button>
+                    <p-button
+                        *ngIf="exibirAcaoEditar(rowData)"
+                        icon="pi pi-pencil"
+                        class="p-mr-2 p-mb-2"
+                        pTooltip="Editar"
+                        tooltipPosition="bottom"
+                        (click)="handleOnEditar(rowData)"
+                    ></p-button>
+                    <p-button
+                        *ngIf="exibirAcaoExcluir(rowData)"
+                        icon="pi pi-trash"
+                        class="p-mr-2 p-mb-2"
+                        pTooltip="Excluir"
+                        tooltipPosition="bottom"
+                        (click)="handleOnExcluir(rowData)"
+                    ></p-button>
+                </div>
+            </td>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="summary">
+        <div class="p-d-flex p-ai-center p-jc-between">
+            No total de {{ dados ? dados.length : 0 }} registros.
+        </div>
+    </ng-template>
+</p-table>
