@@ -4284,7 +4284,7 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
 }
 .p-menubar .p-menuitem-link {
   padding: 1rem 1rem;
-  color: #000001;
+  color: #ffffff;
   border-radius: 0;
   transition: none;
   user-select: none;
@@ -4409,12 +4409,12 @@ p-togglebutton.ng-dirty.ng-invalid > .p-togglebutton.p-button {
     display: flex;
     width: 2.5rem;
     height: 2.5rem;
-    color: #000001;
+    color: #ffffff;
     border-radius: 50%;
     transition: background-color 0.2s, color 0.2s, box-shadow 0.2s;
   }
   .p-menubar .p-menubar-button:hover {
-    color: #000001;
+    color: #ffffff;
     background: rgba(0, 0, 0, 0.04);
   }
   .p-menubar .p-menubar-button:focus {
