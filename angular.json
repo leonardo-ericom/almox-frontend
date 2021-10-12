@@ -3,7 +3,7 @@
     "version": 1,
     "newProjectRoot": "projects",
     "projects": {
-        "barcelona": {
+        "almox": {
             "projectType": "application",
             "schematics": {
                 "@schematics/angular:component": {
@@ -17,7 +17,7 @@
                 "build": {
                     "builder": "@angular-devkit/build-angular:browser",
                     "options": {
-                        "outputPath": "dist/barcelona-ng",
+                        "outputPath": "dist/almox-ng",
                         "index": "src/index.html",
                         "main": "src/main.ts",
                         "polyfills": "src/polyfills.ts",
@@ -28,14 +28,17 @@
                             "src/favicon.ico",
                             "src/upload.php"
                         ],
-                        "styles": [
-                            "src/styles.scss"
-                        ],
+                        "styles": ["src/styles.scss"],
                         "scripts": [
                             "node_modules/prismjs/prism.js",
                             "node_modules/prismjs/components/prism-typescript.js"
                         ],
-                        "allowedCommonJsDependencies": ["@fullcalendar/daygrid","@fullcalendar/timegrid","@fullcalendar/interaction","chart.js"]
+                        "allowedCommonJsDependencies": [
+                            "@fullcalendar/daygrid",
+                            "@fullcalendar/timegrid",
+                            "@fullcalendar/interaction",
+                            "chart.js"
+                        ]
                     },
                     "configurations": {
                         "production": {
@@ -73,14 +76,14 @@
                 "serve": {
                     "builder": "@angular-devkit/build-angular:dev-server",
                     "options": {
-                        "browserTarget": "barcelona:build"
+                        "browserTarget": "almox:build"
                     },
                     "configurations": {
                         "production": {
-                            "browserTarget": "barcelona:build:production"
+                            "browserTarget": "almox:build:production"
                         },
                         "development": {
-                            "browserTarget": "barcelona:build:development"
+                            "browserTarget": "almox:build:development"
                         }
                     },
                     "defaultConfiguration": "development"
@@ -88,7 +91,7 @@
                 "extract-i18n": {
                     "builder": "@angular-devkit/build-angular:extract-i18n",
                     "options": {
-                        "browserTarget": "barcelona:build"
+                        "browserTarget": "almox:build"
                     }
                 },
                 "test": {
@@ -99,9 +102,7 @@
                         "tsConfig": "tsconfig.spec.json",
                         "karmaConfig": "karma.conf.js",
                         "scripts": [],
-                        "styles": [
-                            "src/styles.scss"
-                        ],
+                        "styles": ["src/styles.scss"],
                         "assets": [
                             "src/assets",
                             "src/favicon.ico",
@@ -112,17 +113,12 @@
                 "lint": {
                     "builder": "@angular-devkit/build-angular:tslint",
                     "options": {
-                        "tsConfig": [
-                            "tsconfig.app.json",
-                            "tsconfig.spec.json"
-                        ],
-                        "exclude": [
-                            "**/node_modules/**"
-                        ]
+                        "tsConfig": ["tsconfig.app.json", "tsconfig.spec.json"],
+                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }
         }
     },
-    "defaultProject": "barcelona"
+    "defaultProject": "almox"
 }
