@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 
 @Component({
-    selector: 'app-footer',
+    selector: 'rodape',
     template: `
         <div class="footer">
             <div class="card clearfix">
