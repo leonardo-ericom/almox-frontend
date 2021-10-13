@@ -1,12 +1,12 @@
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
-import { FiltroConsideracaoAtivos } from "src/app/model/enums/filtro-consideracao-ativos";
+import { FiltroConsideracaoAtivos } from "../../../model/enums";
 
 @Component({
-    selector: "app-filtro-consideracao-ativos",
-    templateUrl: "./filtro-consideracao-ativos.component.html",
-    styleUrls: ["./filtro-consideracao-ativos.component.scss"],
+    selector: "filtro-status-auditavel",
+    templateUrl: "./filtro-status-auditavel.component.html",
+    styleUrls: ["./filtro-status-auditavel.component.scss"],
 })
-export class FiltroConsideracaoAtivosComponent implements OnInit {
+export class FiltroStatusAuditavel implements OnInit {
     filtroStatusAuditavel: any = null;
     @Input() filtroSelecionado: any = FiltroConsideracaoAtivos.APENAS_ATIVOS;
     @Output() filtroChange = new EventEmitter();

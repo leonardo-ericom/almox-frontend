@@ -3,7 +3,7 @@ import { MenuItem } from "primeng/api";
 import { MainComponent } from "../main/main.component";
 
 @Component({
-    selector: "app-topbar",
+    selector: "barra-superior",
     templateUrl: "./barra-superior.component.html",
 })
 export class BarraSuperiorComponent implements OnInit {
@@ -21,6 +21,11 @@ export class BarraSuperiorComponent implements OnInit {
                         label: "Usuários",
                         icon: "pi pi-users",
                         routerLink: "/usuarios",
+                    },
+                    {
+                        label: "Produtos",
+                        icon: "fa fa-product-hunt",
+                        routerLink: "/produtos",
                     },
                 ],
             },

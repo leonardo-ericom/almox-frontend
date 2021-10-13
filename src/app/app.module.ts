@@ -29,8 +29,7 @@ import { UsuarioService } from "./modules/usuario/usuario.service";
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         MessageService,
-        ConfirmationService,
-        UsuarioService,
+        ConfirmationService
     ],
     bootstrap: [AppComponent],
 })

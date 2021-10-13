@@ -5,7 +5,9 @@
                 <ng-template pTemplate="left">
                     <h2>
                         {{
-                            modoVisualizacao ? "Visualização de Usuário": editandoRegistroExistente
+                            modoVisualizacao
+                                ? "Visualização de Usuário"
+                                : editandoRegistroExistente
                                 ? "Edição de Usuário"
                                 : "Cadastro de Novo Usuário"
                         }}
@@ -25,18 +27,26 @@
             </p-toolbar>
         </p-panel>
 
-        <form
-            #formulario="ngForm"
-            (ngSubmit)="onSubmit(formulario)"
-        >
+        <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
             <p-card styleClass="p-mb-4 p-p-0">
-                <p-messages *ngIf="modoVisualizacao && formulario.touched"
-                    [value]="[{severity:'warn', summary:'Modo de Visualização', detail:'O Formulário está em Modo de Visualização.'}]"
+                <p-messages
+                    *ngIf="modoVisualizacao && formulario.touched"
+                    [value]="[
+                        {
+                            severity: 'warn',
+                            summary: 'Modo de Visualização',
+                            detail: 'O Formulário está em Modo de Visualização.'
+                        }
+                    ]"
                     [enableService]="false"
                 ></p-messages>
                 <p-card styleClass="p-mb-4 p-p-0">
-                    <ng-template pTemplate="title">Informações Básicas</ng-template>
-                    <ng-template pTemplate="subtitle">Informe os dados do novo usuário</ng-template>
+                    <ng-template pTemplate="title"
+                        >Informações Básicas</ng-template
+                    >
+                    <ng-template pTemplate="subtitle"
+                        >Informe os dados do novo usuário</ng-template
+                    >
 
                     <div class="p-fluid p-formgrid p-grid">
                         <div class="p-field p-col-6">
@@ -51,7 +61,7 @@
                                 required
                                 autofocus
                                 [readonly]="modoVisualizacao"
-                            >
+                            />
                             <small
                                 class="p-invalid p-error"
                                 *ngIf="
@@ -74,7 +84,7 @@
                                 email="true"
                                 autofocus
                                 [readonly]="modoVisualizacao"
-                            >
+                            />
                             <small
                                 class="p-invalid p-error"
                                 *ngIf="
@@ -100,8 +110,12 @@
                 </p-card>
 
                 <p-card styleClass="p-mb-4 p-p-0">
-                    <ng-template pTemplate="title">Permissões e departamentos</ng-template>
-                    <ng-template pTemplate="subtitle">Configure as permissões do novo usuário</ng-template>
+                    <ng-template pTemplate="title"
+                        >Permissões e departamentos</ng-template
+                    >
+                    <ng-template pTemplate="subtitle"
+                        >Configure as permissões do novo usuário</ng-template
+                    >
 
                     <div class="p-fluid p-formgrid p-grid">
                         <div class="p-field p-col-6">
@@ -141,10 +155,7 @@
                                 class="multiselect-custom"
                                 [readonly]="modoVisualizacao"
                             >
-                                <ng-template
-                                    let-departamento
-                                    pTemplate="item"
-                                >
+                                <ng-template let-departamento pTemplate="item">
                                     <div>
                                         <div>{{ departamento.nome }}</div>
                                     </div>
@@ -156,7 +167,9 @@
 
                 <p-card *ngIf="usuario.criadoPor">
                     <ng-template pTemplate="title">Auditoria</ng-template>
-                    <ng-template pTemplate="subtitle">Dados de auditoria do usuário</ng-template>
+                    <ng-template pTemplate="subtitle"
+                        >Dados de auditoria do usuário</ng-template
+                    >
 
                     <div class="p-fluid p-formgrid p-grid">
                         <div class="p-field p-col-6">
@@ -168,7 +181,7 @@
                                 [(ngModel)]="usuario.criadoPor.nome"
                                 pInputText
                                 readonly
-                            >
+                            />
                         </div>
                         <div class="p-field p-col-6">
                             <label for="dataCriacao">Data Criação</label>
@@ -179,7 +192,7 @@
                                 [(ngModel)]="usuario.dataCriacao"
                                 pInputText
                                 readonly
-                            >
+                            />
                         </div>
 
                         <div
@@ -194,7 +207,7 @@
                                 [(ngModel)]="usuario.alteradoPor.nome"
                                 pInputText
                                 readonly
-                            >
+                            />
                         </div>
                         <div
                             class="p-field p-col-6"
@@ -208,7 +221,7 @@
                                 [(ngModel)]="usuario.dataAlteracao"
                                 pInputText
                                 readonly
-                            >
+                            />
                         </div>
 
                         <div
@@ -223,7 +236,7 @@
                                 [(ngModel)]="usuario.excluidoPor.nome"
                                 pInputText
                                 readonly
-                            >
+                            />
                         </div>
                         <div
                             class="p-field p-col-6"
@@ -237,7 +250,7 @@
                                 [(ngModel)]="usuario.dataExclusao"
                                 pInputText
                                 readonly
-                            >
+                            />
                         </div>
                     </div>
                 </p-card>
@@ -267,7 +280,8 @@
                             icon="pi pi-save"
                             [disabled]="
                                 !formulario.valid ||
-                                (editandoRegistroExistente && !formulario.touched)
+                                (editandoRegistroExistente &&
+                                    !formulario.touched)
                             "
                         ></button>
                     </div>

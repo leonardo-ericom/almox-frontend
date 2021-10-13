@@ -1,12 +1,11 @@
-import { FiltroConsideracaoAtivos } from "src/app/model/enums/filtro-consideracao-ativos";
 import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
+import { FiltroConsideracaoAtivos } from "src/app/model/enums/filtro-consideracao-ativos";
 
 @Component({
-    selector: "app-usuario-lista-filtro",
-    templateUrl: "./usuario-lista-filtro.component.html",
-    styleUrls: ["./usuario-lista-filtro.component.scss"],
+    selector: "usuario-filtro",
+    templateUrl: "./usuario-filtro.component.html",
 })
-export class UsuarioListaFiltroComponent implements OnInit {
+export class UsuarioFiltroComponent implements OnInit {
     @Output("buscar")
     buscarEvent: EventEmitter<any> = new EventEmitter();
 

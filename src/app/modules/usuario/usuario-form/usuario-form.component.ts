@@ -1,16 +1,17 @@
-import { HandleErrorService } from "../../shared/handle-error.service";
-import { CommonService } from "../../shared/common.service";
-import { UsuarioService } from "../usuario.service";
-import { Departamento } from "../../../model/departamento";
 import { Component, OnInit, ViewChild } from "@angular/core";
-import { Usuario } from "src/app/model/usuario";
-import { ActivatedRoute, Router } from "@angular/router";
 import { NgForm } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
 import { MessageService } from "primeng/api";
+import { Usuario } from "src/app/model/usuario";
 import { rotaEstaEmModoVisualizacao } from "src/app/utils/RouterUtil";
 
+import { Departamento } from "../../../model/departamento";
+import { CommonService } from "../../shared/common.service";
+import { HandleErrorService } from "../../shared/handle-error.service";
+import { UsuarioService } from "../usuario.service";
+
 @Component({
-    selector: "app-usuario-form",
+    selector: "usuario-form",
     templateUrl: "./usuario-form.component.html",
 })
 export class UsuarioFormComponent implements OnInit {
