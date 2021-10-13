@@ -5,7 +5,6 @@
             id="nome"
             type="text"
             [(ngModel)]="filtro.nome"
-            class="p-inputtext-sm"
             pInputText
         />
     </div>
@@ -15,7 +14,6 @@
             id="email"
             type="text"
             [(ngModel)]="filtro.email"
-            class="p-inputtext-sm"
             pInputText
         />
     </div>
@@ -23,7 +21,6 @@
         <label for="tipoUsuario">Tipo Usuário</label>
         <p-dropdown
             id="tipoUsuario"
-            class="p-inputtext-sm"
             [options]="tiposUsuarios"
             [(ngModel)]="filtro.tipoUsuario"
             placeholder="Selecione um Tipo"
@@ -35,10 +32,10 @@
     <div class="p-field p-col-3">
         <br />
         <br />
-        <app-filtro-consideracao-ativos
+        <filtro-status-auditavel
             [filtroSelecionado]="filtro.filtroStatusAuditavel"
             (filtroChange)="filtro.filtroStatusAuditavel = $event"
-        ></app-filtro-consideracao-ativos>
+        ></filtro-status-auditavel>
     </div>
 </div>
 <div class="p-d-flex p-jc-center">

@@ -3,6 +3,7 @@ import { Router } from "@angular/router";
 import { ConfirmationService, MessageService } from "primeng/api";
 import { Observable, Subscriber } from "rxjs";
 import { Usuario } from "src/app/model/usuario";
+
 import { CommonService } from "../../shared/common.service";
 import { HandleErrorService } from "../../shared/handle-error.service";
 import {
@@ -10,22 +11,23 @@ import {
     criarConfiguracaoColunaStatusAuditavel,
     TipoColuna,
 } from "../../shared/tabela-crud/coluna";
-import { UsuarioListaFiltroComponent } from "../usuario-lista-filtro/usuario-lista-filtro.component";
+import { UsuarioFiltroComponent } from "../usuario-filtro/usuario-filtro.component";
 import { UsuarioService } from "../usuario.service";
 
 @Component({
-    selector: "app-usuario-lista",
+    selector: "usuario-lista",
     templateUrl: "./usuario-lista.component.html",
-    styleUrls: ["./usuario-lista.component.scss"],
 })
 export class UsuarioListaComponent implements OnInit {
+    TITULO_PAGINA = "Usuários";
+
     usuarios: Usuario[];
-    usuariosSelecionados: Usuario[];
+    selecionados: Usuario[];
     enums$: Observable<any>;
     enumsSubscribe: Subscriber<any>;
     tiposUsuarios: any[];
     colunas: any[];
-    @ViewChild("filtroComponent") filtroComponent: UsuarioListaFiltroComponent;
+    @ViewChild("filtroComponent") filtroComponent: UsuarioFiltroComponent;
 
     constructor(
         private usuarioService: UsuarioService,
@@ -67,7 +69,7 @@ export class UsuarioListaComponent implements OnInit {
         ];
     }
 
-    buscarUsuarios(filtro: any): void {
+    buscar(filtro: any): void {
         this.usuarioService
             .buscarTodos(filtro)
             .subscribe(
@@ -75,13 +77,13 @@ export class UsuarioListaComponent implements OnInit {
             );
     }
 
-    visualizarUsuario = usuario =>
-        this.router.navigate([`/usuarios/visualizar/${usuario.id}`]);
+    visualizar = (usuario: Usuario) =>
+        this.router.navigate([`usuarios/visualizar/${usuario.id}`]);
 
-    editarUsuario = usuario =>
-        this.router.navigate([`/usuarios/editar/${usuario.id}`]);
+    editar = (usuario: Usuario) =>
+        this.router.navigate([`usuarios/editar/${usuario.id}`]);
 
-    excluirUsuariosSelecionados(): void {
+    excluirSelecionados(): void {
         this.confirmationService.confirm({
             message: "Tem certeza que deseja excluir os usuários selecionados?",
             header: "Confirmação",
@@ -89,7 +91,7 @@ export class UsuarioListaComponent implements OnInit {
             rejectLabel: "Não",
             acceptLabel: "Sim",
             accept: () => {
-                this.usuariosSelecionados
+                this.selecionados
                     .filter(usuario => !usuario.excluido)
                     .forEach(usuario => {
                         this.usuarioService.excluir(usuario.id).subscribe(
@@ -100,9 +102,7 @@ export class UsuarioListaComponent implements OnInit {
                                     detail: `Usuário ${usuario.nome} excluído.`,
                                     life: 1500,
                                 });
-                                this.buscarUsuarios(
-                                    this.filtroComponent.filtro
-                                );
+                                this.buscar(this.filtroComponent.filtro);
                             },
                             error => this.handleErrorService.handleError(error)
                         );
@@ -111,7 +111,7 @@ export class UsuarioListaComponent implements OnInit {
         });
     }
 
-    excluirUsuario(usuario: Usuario) {
+    excluir(usuario: Usuario) {
         this.confirmationService.confirm({
             message: `Você têm certeza que deseja excluir o usuário ${usuario.nome} ?`,
             header: "Confirmação",
@@ -127,7 +127,7 @@ export class UsuarioListaComponent implements OnInit {
                             detail: "Usuário Excluído",
                             life: 3000,
                         });
-                        this.buscarUsuarios(this.filtroComponent.filtro);
+                        this.buscar(this.filtroComponent.filtro);
                     },
                     error => this.handleErrorService.handleError(error)
                 );

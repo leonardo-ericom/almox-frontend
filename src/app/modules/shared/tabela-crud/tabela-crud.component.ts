@@ -8,7 +8,7 @@ import * as StringUtil from "../../../utils/StringUtil";
 import { Coluna, TipoColuna } from "./coluna";
 
 @Component({
-    selector: "app-tabela-crud",
+    selector: "tabela-crud",
     templateUrl: "./tabela-crud.component.html",
     styleUrls: ["./tabela-crud-component.scss"],
 })

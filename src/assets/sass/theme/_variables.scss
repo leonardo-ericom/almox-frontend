@@ -21,7 +21,7 @@ $inlineSpacing:.5rem;
 $disabledOpacity:.38;
 $maskBg:rgba(0, 0, 0, 0.32);
 $loadingIconFontSize:2rem;
-$errorColor:#D32F2F;
+$errorColor:#B00020;
 
 //selected state
 $highlightBg:rgba($primaryColor, .12);
@@ -250,8 +250,8 @@ $inplaceTextHoverColor:$textColor;
 
 //rating
 $ratingIconFontSize:1.143rem;
-$ratingCancelIconColor:#D32F2F;
-$ratingCancelIconHoverColor:#D32F2F;
+$ratingCancelIconColor:#B00020;
+$ratingCancelIconHoverColor:#B00020;
 $ratingStarIconOffColor:$primaryColor;
 $ratingStarIconOnColor:$primaryColor;
 $ratingStarIconHoverColor:$primaryColor;
@@ -656,18 +656,18 @@ $breadcrumbSeparatorColor:$textSecondaryColor;
 
 $horizontalMenuPadding:1rem;
 $horizontalMenuBg:transparent;
-$horizontalMenuBorder:1px solid #e5e5e5;
+$horizontalMenuBorder:none;
 $horizontalMenuTextColor:$textColor;
 $horizontalMenuRootMenuitemPadding:1rem;
 $horizontalMenuRootMenuitemBorderRadius:$borderRadius;
-$horizontalMenuRootMenuitemTextColor:$textColor;
-$horizontalMenuRootMenuitemIconColor:$textSecondaryColor;
-$horizontalMenuRootMenuitemTextHoverColor:$textColor;
-$horizontalMenuRootMenuitemIconHoverColor:$textSecondaryColor;
-$horizontalMenuRootMenuitemHoverBg:rgba(0,0,0,.04);
-$horizontalMenuRootMenuitemTextActiveColor:$textColor;
-$horizontalMenuRootMenuitemIconActiveColor:$textSecondaryColor;
-$horizontalMenuRootMenuitemActiveBg:rgba(0,0,0,.04);
+$horizontalMenuRootMenuitemTextColor:#ffffff;
+$horizontalMenuRootMenuitemIconColor:#ffffff;
+$horizontalMenuRootMenuitemTextHoverColor:#ffffff;
+$horizontalMenuRootMenuitemIconHoverColor:#ffffff;
+$horizontalMenuRootMenuitemHoverBg:transparent;
+$horizontalMenuRootMenuitemTextActiveColor:#ffffff;
+$horizontalMenuRootMenuitemIconActiveColor:#ffffff;
+$horizontalMenuRootMenuitemActiveBg:transparent;
 
 //badge and tag
 $badgeBg:$primaryColor;
