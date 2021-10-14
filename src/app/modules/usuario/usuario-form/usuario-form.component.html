@@ -3,15 +3,17 @@
         <p-panel styleClass="p-mb-4 p-p-0">
             <p-toolbar styleClass="p-p-0 p-m-0">
                 <ng-template pTemplate="left">
-                    <h2>
-                        {{
-                            modoVisualizacao
-                                ? "Visualização de Usuário"
-                                : editandoRegistroExistente
-                                ? "Edição de Usuário"
-                                : "Cadastro de Novo Usuário"
-                        }}
-                    </h2>
+                    <div>
+                        <h2>
+                            {{
+                                modoVisualizacao
+                                    ? "Visualização de Usuário"
+                                    : editandoRegistroExistente
+                                    ? "Edição de Usuário"
+                                    : "Cadastro de Novo Usuário"
+                            }}
+                        </h2>
+                    </div>
                 </ng-template>
 
                 <ng-template pTemplate="right">
@@ -40,7 +42,7 @@
                     ]"
                     [enableService]="false"
                 ></p-messages>
-                <p-card styleClass="p-mb-4 p-p-0">
+                <p-card styleClass="p-mb-4 p-p-0 p-shadow-3">
                     <ng-template pTemplate="title"
                         >Informações Básicas</ng-template
                     >
@@ -109,7 +111,7 @@
                     </div>
                 </p-card>
 
-                <p-card styleClass="p-mb-4 p-p-0">
+                <p-card styleClass="p-mb-4 p-p-0 p-shadow-3">
                     <ng-template pTemplate="title"
                         >Permissões e departamentos</ng-template
                     >
@@ -165,7 +167,10 @@
                     </div>
                 </p-card>
 
-                <p-card *ngIf="usuario.criadoPor">
+                <p-card
+                    styleClass="p-p-0 p-shadow-3"
+                    *ngIf="usuario.criadoPor"
+                >
                     <ng-template pTemplate="title">Auditoria</ng-template>
                     <ng-template pTemplate="subtitle"
                         >Dados de auditoria do usuário</ng-template
@@ -283,6 +288,20 @@
                                 (editandoRegistroExistente &&
                                     !formulario.touched)
                             "
+                        ></button>
+                    </div>
+                    <div
+                        class="p-grid p-nogutter p-justify-end"
+                        *ngIf="modoVisualizacao"
+                    >
+                        <button
+                            type="button"
+                            pButton
+                            pRipple
+                            label="Editar"
+                            class="p-mb-3 p-button-outlined p-button-secondary"
+                            icon="pi pi-pencil"
+                            (click)="habilitarModoEdicao()"
                         ></button>
                     </div>
                 </ng-template>

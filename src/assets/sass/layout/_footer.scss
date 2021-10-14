@@ -1,7 +1,7 @@
 .layout-wrapper {
     .footer {
+        background-color: #f4f4f4ff;
         padding: .5em;
-        @include transition(margin-left .3s);
 
         .footer-text-left {
             float: left;

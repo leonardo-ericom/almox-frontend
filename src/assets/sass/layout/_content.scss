@@ -7,6 +7,6 @@
     .layout-main {
         flex: 1 1 0;
         padding: 80px 10px 0px 10px;
-        @include transition(margin-left .3s);
+        background-color: #f4f4f4ff;
     }
 }

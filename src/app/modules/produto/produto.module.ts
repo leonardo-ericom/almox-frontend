@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
-import { AppPrimengModule } from '../app-primeng/app-primeng.module';
+import { PrimengModule } from '../primeng/primeng.module';
 import { SharedModule } from '../shared/shared.module';
 import { ProdutoFiltroComponent } from './produto-filtro/produto-filtro.component';
 import { ProdutoFormComponent } from './produto-form/produto-form.component';
@@ -18,7 +18,7 @@ import { ProdutoService } from './produto.service';
     imports: [
         CommonModule,
         ProdutoRoutingModule,
-        AppPrimengModule,
+        PrimengModule,
         SharedModule,
     ],
     providers: [ProdutoService],
