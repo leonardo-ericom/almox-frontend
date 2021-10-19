@@ -8,6 +8,7 @@ import { UsuarioFormComponent } from './usuario-form/usuario-form.component';
 import { UsuarioListaComponent } from './usuario-lista/usuario-lista.component';
 import { UsuarioRoutingModule } from './usuario-routing.module';
 
+
 @NgModule({
   declarations: [
       UsuarioFormComponent,

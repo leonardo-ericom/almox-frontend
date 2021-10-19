@@ -134,6 +134,17 @@ $secondaryButtonTextActiveColor:$accentTextColor;
 $secondaryButtonActiveBorderColor:transparent;
 $secondaryButtonFocusShadow:none;
 
+$primaryAltButtonBg:$primaryAltColor;
+$primaryAltButtonTextColor:$primaryAltTextColor;
+$primaryAltButtonBorder:0 none;
+$primaryAltButtonHoverBg:#d4d6da;
+$primaryAltButtonTextHoverColor:$primaryAltTextColor;
+$primaryAltButtonHoverBorderColor:transparent;
+$primaryAltButtonActiveBg:rgba($primaryAltColor, .68);
+$primaryAltButtonTextActiveColor:$primaryAltTextColor;
+$primaryAltButtonActiveBorderColor:transparent;
+$primaryAltButtonFocusShadow:none;
+
 $infoButtonBg:#2196F3;
 $infoButtonTextColor:#ffffff;
 $infoButtonBorder:0 none;
@@ -188,6 +199,17 @@ $dangerButtonActiveBg:rgba(#D32F2F, .68);
 $dangerButtonTextActiveColor:#ffffff;
 $dangerButtonActiveBorderColor:transparent;
 $dangerButtonFocusShadow:none;
+
+$dangerAltButtonBg:#f6c9c9;
+$dangerAltButtonTextColor:#dc2626;
+$dangerAltButtonBorder:0 none;
+$dangerAltButtonHoverBg:#ee9393;
+$dangerAltButtonTextHoverColor:#dc2626;
+$dangerAltButtonHoverBorderColor:transparent;
+$dangerAltButtonActiveBg:#ee9393;
+$dangerAltButtonTextActiveColor:#ffffff;
+$dangerAltButtonActiveBorderColor:transparent;
+$dangerAltButtonFocusShadow:none;
 
 $linkButtonColor:$primaryColor;
 $linkButtonHoverColor:$primaryColor;
@@ -469,7 +491,7 @@ $tableSortableColumnBadgeSize:1.143rem;
 
 $tableBodyRowBg:#ffffff;
 $tableBodyRowTextColor:$textColor;
-$tableBodyRowEvenBg:rgba(0,0,0,.02);
+$tableBodyRowEvenBg:#f6f7f9;
 $tableBodyRowHoverBg:rgba(0,0,0,.04);
 $tableBodyRowTextHoverColor:$textColor;
 $tableBodyCellBorder:1px solid #e4e4e4;
@@ -556,7 +578,7 @@ $toastMargin:0 0 1rem 0;
 $toastPadding:1.5rem;
 $toastBorderWidth:0 0 0 0;
 $toastShadow:0 5px 5px -3px rgba(0,0,0,.2), 0 8px 10px 1px rgba(0,0,0,.14), 0 3px 14px 2px rgba(0,0,0,.12);
-$toastOpacity:.9;
+$toastOpacity:1;
 $toastTitleFontWeight:700;
 $toastDetailMargin:$inlineSpacing 0 0 0;
 

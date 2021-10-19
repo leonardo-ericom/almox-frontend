@@ -1801,16 +1801,19 @@ body a {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
+  background-color: #f4f4f4ff;
 }
 .layout-wrapper .layout-main {
   flex: 1 1 0;
   padding: 80px 10px 0px 10px;
-  background-color: #f4f4f4ff;
+  margin-left: 3rem;
+  margin-right: 3rem;
 }
 
 .layout-wrapper .footer {
   background-color: #f4f4f4ff;
   padding: 0.5em;
+  margin: 0 3rem;
 }
 .layout-wrapper .footer .footer-text-left {
   float: left;
