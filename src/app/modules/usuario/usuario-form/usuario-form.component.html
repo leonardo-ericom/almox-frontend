@@ -102,6 +102,7 @@
                         <input type="text" id="criadoPor" name="criadoPor.nome" [(ngModel)]="usuario.criadoPor.nome"
                             pInputText readonly />
                     </div>
+
                     <div class="p-field p-col-6">
                         <label for="dataCriacao">Data Criação</label>
                         <input type="text" id="dataCriacao" name="dataCriacao" [(ngModel)]="usuario.dataCriacao"
@@ -113,6 +114,7 @@
                         <input type="text" id="alteradoPor" name="alteradoPor.nome"
                             [(ngModel)]="usuario.alteradoPor.nome" pInputText readonly />
                     </div>
+
                     <div class="p-field p-col-6" *ngIf="usuario.alteradoPor">
                         <label for="dataAlteracao">Data Alteração</label>
                         <input type="text" id="dataAlteracao" name="dataAlteracao" [(ngModel)]="usuario.dataAlteracao"
@@ -124,6 +126,7 @@
                         <input type="text" id="excluidoPor.nome" name="excluidoPor.nome"
                             [(ngModel)]="usuario.excluidoPor.nome" pInputText readonly />
                     </div>
+
                     <div class="p-field p-col-6" *ngIf="usuario.excluidoPor">
                         <label for="dataExclusao">Data Exclusão</label>
                         <input type="text" id="dataExclusao" name="dataExclusao" [(ngModel)]="usuario.dataExclusao"
