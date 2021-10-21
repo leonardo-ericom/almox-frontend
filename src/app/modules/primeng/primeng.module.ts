@@ -174,4 +174,4 @@ FullCalendarModule.registerPlugins([
         TriStateCheckboxModule,
     ],
 })
-export class AppPrimengModule {}
+export class PrimengModule {}

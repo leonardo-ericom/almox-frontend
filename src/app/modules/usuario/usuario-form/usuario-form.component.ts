@@ -74,4 +74,7 @@ export class UsuarioFormComponent implements OnInit {
     limpar(): void {
         this.usuario = {};
     }
+
+    habilitarModoEdicao = () =>
+        this.router.navigate([`usuarios/editar/${this.usuario.id}`]);
 }
