@@ -44,7 +44,7 @@
                 background: $plainButtonHoverBgColor;
                 color: $plainButtonTextColor;
             }
-    
+
             &:enabled:active {
                 background: $plainButtonActiveBgColor;
                 color: $plainButtonTextColor;
@@ -76,7 +76,7 @@
                 background: $plainButtonHoverBgColor;
                 color: $plainButtonTextColor;
             }
-    
+
             &:enabled:active {
                 background: $plainButtonActiveBgColor;
                 color: $plainButtonTextColor;
@@ -110,7 +110,7 @@
         height: $fontSize;
         line-height: $fontSize;
         color: $buttonBg;
-        background-color: $buttonTextColor; 
+        background-color: $buttonTextColor;
     }
 
     &.p-button-raised {
@@ -169,14 +169,14 @@
     .p-button {
         width: 100%;
     }
-    
+
     .p-button-icon-only {
         width: $buttonIconOnlyWidth;
     }
 
     .p-buttonset {
         display: flex;
-        
+
         .p-button {
             flex: 1;
         }
@@ -203,7 +203,7 @@
         color: $secondaryButtonTextActiveColor;
         border-color: $secondaryButtonActiveBorderColor;
     }
-    
+
     &.p-button-outlined {
         background-color: transparent;
         color: $secondaryButtonBg;
@@ -237,6 +237,64 @@
             background: rgba($secondaryButtonBg, $textButtonActiveBgOpacity);
             border-color: transparent;
             color: $secondaryButtonBg;
+        }
+    }
+}
+
+.p-button.p-button-primary-alt, .p-buttonset.p-button-primary-alt > .p-button, .p-splitbutton.p-button-primary-alt > .p-button {
+    color: $primaryAltButtonTextColor;
+    background: $primaryAltButtonBg;
+    border: $primaryAltButtonBorder;
+
+    &:enabled:hover {
+        background: $primaryAltButtonHoverBg;
+        color: $primaryAltButtonTextHoverColor;
+        border-color: $primaryAltButtonHoverBorderColor;
+    }
+
+    &:enabled:focus {
+        box-shadow: $primaryAltButtonFocusShadow;
+    }
+
+    &:enabled:active {
+        background: $primaryAltButtonActiveBg;
+        color: $primaryAltButtonTextActiveColor;
+        border-color: $primaryAltButtonActiveBorderColor;
+    }
+
+    &.p-button-outlined {
+        background-color: transparent;
+        color: $primaryAltButtonBg;
+        border: $outlinedButtonBorder;
+
+        &:enabled:hover {
+            background: rgba($primaryAltButtonBg, $textButtonHoverBgOpacity);
+            color: $primaryAltButtonBg;
+            border: $outlinedButtonBorder;
+        }
+
+        &:enabled:active {
+            background: rgba($primaryAltButtonBg, $textButtonActiveBgOpacity);
+            color: $primaryAltButtonBg;
+            border: $outlinedButtonBorder;
+        }
+    }
+
+    &.p-button-text {
+        background-color: transparent;
+        color: $primaryAltButtonBg;
+        border-color: transparent;
+
+        &:enabled:hover {
+            background: rgba($primaryAltButtonBg, $textButtonHoverBgOpacity);
+            border-color: transparent;
+            color: $primaryAltButtonBg;
+        }
+
+        &:enabled:active {
+            background: rgba($primaryAltButtonBg, $textButtonActiveBgOpacity);
+            border-color: transparent;
+            color: $primaryAltButtonBg;
         }
     }
 }
@@ -361,7 +419,7 @@
     color: $warningButtonTextColor;
     background: $warningButtonBg;
     border: $warningButtonBorder;
-    
+
     &:enabled:hover {
         background: $warningButtonHoverBg;
         color: $warningButtonTextHoverColor;
@@ -508,6 +566,64 @@
         &:enabled:active {
             background: rgba($dangerButtonBg, $textButtonActiveBgOpacity);
             color: $dangerButtonBg;
+            border: $outlinedButtonBorder;
+        }
+    }
+
+    &.p-button-text {
+        background-color: transparent;
+        color: $dangerButtonBg;
+        border-color: transparent;
+
+        &:enabled:hover {
+            background: rgba($dangerButtonBg, $textButtonHoverBgOpacity);
+            border-color: transparent;
+            color: $dangerButtonBg;
+        }
+
+        &:enabled:active {
+            background: rgba($dangerButtonBg, $textButtonActiveBgOpacity);
+            border-color: transparent;
+            color: $dangerButtonBg;
+        }
+    }
+}
+
+.p-button.p-button-danger-alt, .p-buttonset.p-button-danger-alt > .p-button, .p-splitbutton.p-button-danger-alt > .p-button {
+    color: $dangerAltButtonTextColor;
+    background: $dangerAltButtonBg;
+    border: $dangerAltButtonBorder;
+
+    &:enabled:hover {
+        background: $dangerAltButtonHoverBg;
+        color: $dangerAltButtonTextHoverColor;
+        border-color: $dangerAltButtonHoverBorderColor;
+    }
+
+    &:enabled:focus {
+        box-shadow: $dangerAltButtonFocusShadow;
+    }
+
+    &:enabled:active {
+        background: $dangerAltButtonActiveBg;
+        color: $dangerAltButtonTextActiveColor;
+        border-color: $dangerAltButtonActiveBorderColor;
+    }
+
+    &.p-button-outlined {
+        background-color: transparent;
+        color: $dangerAltButtonBg;
+        border: $outlinedButtonBorder;
+
+        &:enabled:hover {
+            background: rgba($dangerAltButtonBg, $textButtonHoverBgOpacity);
+            color: $dangerAltButtonBg;
+            border: $outlinedButtonBorder;
+        }
+
+        &:enabled:active {
+            background: rgba($dangerAltButtonBg, $textButtonActiveBgOpacity);
+            color: $dangerAltButtonBg;
             border: $outlinedButtonBorder;
         }
     }

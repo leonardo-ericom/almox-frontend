@@ -1,17 +1,15 @@
-import { CoreModule } from './modules/core/core.module';
-import { UsuarioModule } from "./modules/usuario/usuario.module";
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { HttpClientModule } from "@angular/common/http";
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { HashLocationStrategy, LocationStrategy } from "@angular/common";
-import { AppRoutingModule } from "./app-routing.module";
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
-// Application Components
-import { AppComponent } from "./app.component";
-import { ConfirmationService, MessageService } from "primeng/api";
-import { UsuarioService } from "./modules/usuario/usuario.service";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { CoreModule } from './modules/core/core.module';
+import { UsuarioModule } from './modules/usuario/usuario.module';
 
 @NgModule({
     imports: [

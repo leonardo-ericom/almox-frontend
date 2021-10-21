@@ -1,78 +1,211 @@
 <div class="p-grid">
     <div class="p-col-12">
-        <p-panel styleClass="p-mb-4 p-p-0">
-            <p-toolbar styleClass="p-p-0 p-m-0">
-                <ng-template pTemplate="left">
-                    <h2>
-                        {{
-                            modoVisualizacao
-                                ? "Visualização de Produto"
-                                : editandoRegistroExistente
-                                ? "Edição de Produto"
-                                : "Cadastro de Novo Produto"
-                        }}
-                    </h2>
-                </ng-template>
-
-                <ng-template pTemplate="right">
-                    <button
-                        pButton
-                        pRipple
-                        label="Consultar"
-                        class="p-mb-3"
-                        icon="pi pi-list"
-                        routerLink="/produtos"
-                    ></button>
-                </ng-template>
-            </p-toolbar>
-        </p-panel>
+        <div class="p-d-flex p-jc-between">
+            <titulo-pagina-crud entidade="Produtos" acao="{{
+                modoVisualizacao ? 'Visualização de Produto': editandoRegistroExistente
+                    ? 'Editar'
+                    : 'Novo'
+                }}"></titulo-pagina-crud>
+            <div>
+                <button *ngIf="modoVisualizacao" type="button" pButton pRipple label="Editar"
+                    class="p-mb-3 p-mr-2 p-button-outlined p-button-primary" icon="pi pi-pencil"
+                    (click)="habilitarModoEdicao()"></button>
+                <button pButton pRipple label="Consultar" class="p-mb-3" icon="pi pi-list"
+                    routerLink="/produtos"></button>
+            </div>
+        </div>
 
         <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
-            <p-card styleClass="p-mb-4 p-p-0">
-                <p-messages
-                    *ngIf="modoVisualizacao && formulario.touched"
-                    [value]="[
+            <p-messages *ngIf="modoVisualizacao && formulario.touched" [enableService]="false" [value]="[
                         {
                             severity: 'warn',
                             summary: 'Modo de Visualização',
                             detail: 'O Formulário está em Modo de Visualização.'
                         }
-                    ]"
-                    [enableService]="false"
-                ></p-messages>
+                    ]">
+            </p-messages>
 
-                <ng-template pTemplate="footer">
-                    <div
-                        class="p-grid p-nogutter p-justify-end"
-                        *ngIf="!modoVisualizacao"
-                    >
-                        <button
-                            type="button"
-                            pButton
-                            pRipple
-                            label="Limpar"
-                            class="
-                                p-mb-3 p-mr-2 p-button-outlined p-button-primary
-                            "
-                            [disabled]="editandoRegistroExistente"
-                            (click)="limpar()"
-                        ></button>
-                        <button
-                            type="submit"
-                            pButton
-                            pRipple
-                            label="Salvar"
-                            class="p-mb-3"
-                            icon="pi pi-save"
-                            [disabled]="
-                                !formulario.valid ||
-                                (editandoRegistroExistente &&
-                                    !formulario.touched)
-                            "
-                        ></button>
+            <p-card styleClass="p-mb-4 p-p-0 p-shadow-3">
+                <ng-template pTemplate="title">Informações Básicas</ng-template>
+                <ng-template pTemplate="subtitle">Informe os dados do novo produto</ng-template>
+
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-3">
+                        <label for="id">Código</label>
+                        <input #idControl="ngModel" type="text" id="id" name="id" [(ngModel)]="produto.id" pInputText
+                            readonly />
+
+                        <small class="p-invalid p-error"
+                            *ngIf="!codigoBarrasControl.valid && codigoBarrasControl.touched && !produto.codigoBarras">
+                            O código de barras do produto é necessário.
+                        </small>
                     </div>
-                </ng-template>
+
+                    <div class="p-field p-col-3">
+                        <label for="codigoBarras">Código de Barras</label>
+                        <input #codigoBarrasControl="ngModel" type="text" id="codigoBarras" name="codigoBarras"
+                            [(ngModel)]="produto.codigoBarras" pInputText autofocus [readonly]="modoVisualizacao" />
+                    </div>
+
+                    <div class="p-field p-col-6">
+                        <label for="descricao">Descrição</label>
+                        <input #descricaoControl="ngModel" type="text" id="descricao" name="descricao"
+                            [(ngModel)]="produto.descricao" pInputText required autofocus
+                            [readonly]="modoVisualizacao" />
+                        <small class="p-invalid p-error" *ngIf="!descricaoControl.valid && descricaoControl.touched">
+                            A descrição do produto é necessária.
+                        </small>
+                    </div>
+
+                    <div class="p-field p-col-3">
+                        <label for="unidadeMedida">Unidade de Medida</label>
+                        <p-dropdown #unidadeMedidaControl="ngModel" id="unidadeMedida" name="unidadeMedida"
+                            [options]="unidadesMedidas" [(ngModel)]="produto.unidadeMedida"
+                            placeholder="Selecione uma medida" optionLabel="descricao"
+                            emptyMessage="Nenhum registro encontrado" [showClear]="true" required>
+                        </p-dropdown>
+                        <small class="p-invalid p-error"
+                            *ngIf="!unidadeMedidaControl.valid && unidadeMedidaControl.touched">
+                            A unidade de medida é necessária
+                        </small>
+                    </div>
+
+                    <div class="p-field p-col-3">
+                        <label for="fabricante">Fabricante</label>
+                        <p-dropdown #fabricanteControl="ngModel" id="fabricante" name="fabricante"
+                            [options]="fabricantes" [(ngModel)]="produto.fabricante"
+                            placeholder="Selecione um fabricante" optionLabel="descricao"
+                            emptyMessage="Nenhum registro encontrado" required [showClear]="true">
+                        </p-dropdown>
+                        <small class="p-invalid p-error" *ngIf="!fabricanteControl.valid && fabricanteControl.touched">
+                            O fabricante é necessário
+                        </small>
+                    </div>
+
+                    <div class="p-field p-col-3">
+                        <label for="grupo">Grupo</label>
+                        <p-dropdown #grupoControl="ngModel" id="grupo" name="grupo" [options]="grupos"
+                            [(ngModel)]="produto.grupo" placeholder="Selecione um grupo" optionLabel="descricao"
+                            emptyMessage="Nenhum registro encontrado" required [showClear]="true">
+                        </p-dropdown>
+                        <small class="p-invalid p-error" *ngIf="!grupoControl.valid && grupoControl.touched">
+                            O grupo é necessário
+                        </small>
+                    </div>
+
+                    <div class="p-field p-col-3">
+                        <label for="unidadeMedida">Departamentos</label>
+                        <p-multiSelect
+                            #departamentosControl="ngModel"
+                            name="departamentos"
+                            [options]="departamentos"
+                            [(ngModel)]="produto.departamentos"
+                            emptyMessage="Nenhum registro encontrado"
+                            optionLabel="name"
+                            class="multiselect-custom"
+                        ></p-multiSelect>
+                        <small class="p-invalid p-error" *ngIf="!departamentosControl.valid && departamentosControl.touched">
+                            O grupo é necessário
+                        </small>
+                    </div>
+
+                    <div class="p-field p-col-6">
+                        <label for="palavrasChaves">Palavras Chaves</label>
+                        <p-chips id="palavrasChaves" name="palavrasChaves" [(ngModel)]="produto.palavrasChaves">
+                        </p-chips>
+                    </div>
+
+                    <div class="p-field p-col-6">
+                        <div class="p-field-inputSwitch p-mt-5">
+                            <label for="possuiLoteValidade">Possui Lote e Validade? </label>
+                            <p-inputSwitch [(ngModel)]="produto.possuiLoteValidade">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-field p-col-12">
+                        <label for="detalhes">Detalhes</label>
+                        <textarea #descricaoControl="ngModel" [(ngModel)]="produto.detalhes" rows="5" pInputTextarea
+                            id="detalhes" name="detalhes" autoResize="autoResize"></textarea>
+                    </div>
+                </div>
             </p-card>
+
+            <p-card styleClass="p-mb-4 p-p-0 p-shadow-3" *ngIf="produto.unidadeMedida">
+                <ng-template pTemplate="title">Configuração de Estoque</ng-template>
+                <ng-template pTemplate="subtitle">Informe os dados de custo</ng-template>
+
+                <div class="p-fluid p-formgrid p-grid">
+                    <div class="p-field p-col-12">
+                        <div class="p-field-inputSwitch">
+                            <label for="controlaEstoqueMinimo">Controla Estoque Mínimo? </label>
+                            <p-inputSwitch [(ngModel)]="produto.configuracaoEstoque.controlaEstoqueMinimo">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-field p-col-12">
+                        <div class="p-field-inputSwitch">
+                            <label for="controlaEstoqueMaximo">Controla Estoque Máximo? </label>
+                            <p-inputSwitch [(ngModel)]="produto.configuracaoEstoque.controlaEstoqueMaximo">
+                            </p-inputSwitch>
+                        </div>
+                    </div>
+
+                    <div class="p-field p-col-4">
+                        <label for="estoqueMinimo">Estoque Mínimo</label>
+                        <div class="p-inputgroup">
+                            <input #estoqueMinimoControl="ngModel" type="text" id="estoqueMinimo" name="estoqueMinimo"
+                                [(ngModel)]="produto.configuracaoEstoque.estoqueMinimo" pInputText required autofocus
+                                [readonly]="modoVisualizacao" />
+                            <span class="p-inputgroup-addon" *ngIf="produto.unidadeMedida">{{ produto.unidadeMedida.type
+                                }}</span>
+                        </div>
+                        <small class="p-invalid p-error"
+                            *ngIf="!estoqueMinimoControl.valid && estoqueMinimoControl.touched">
+                            O estoque mínimo é necessário
+                        </small>
+                    </div>
+
+                    <div class="p-field p-col-4" *ngIf="produto.configuracaoEstoque.estoqueAtual">
+                        <label for="estoqueMinimo">Estoque Atual</label>
+                        <div class="p-inputgroup">
+                            <input #estoqueAtualControl="ngModel" type="text" id="estoqueAtual" name="estoqueAtual"
+                                [(ngModel)]="produto.configuracaoEstoque.estoqueAtual" pInputText required autofocus
+                                [readonly]="modoVisualizacao" />
+                            <span class="p-inputgroup-addon">{{ produto.unidadeMedida.type }}</span>
+                        </div>
+                    </div>
+
+                    <div class=" p-field p-col-4">
+                        <label for="estoqueMaximo">Estoque Máximo</label>
+                        <div class="p-inputgroup">
+                            <input #estoqueMaximoControl="ngModel" type="text" id="estoqueMaximo" name="estoqueMaximo"
+                                [(ngModel)]="produto.configuracaoEstoque.estoqueMaximo" pInputText required autofocus
+                                [readonly]="modoVisualizacao" />
+                            <span class="p-inputgroup-addon" *ngIf="produto.unidadeMedida">{{
+                                produto.unidadeMedida.type
+                                }}</span>
+                        </div>
+                        <small class="p-invalid p-error"
+                            *ngIf="!estoqueMaximoControl.valid && estoqueMaximoControl.touched">
+                            O estoque máximo é necessário
+                        </small>
+                    </div>
+
+                </div>
+            </p-card>
+
+            <div class="p-grid p-justify-end" *ngIf="!modoVisualizacao">
+                <button type="button" pButton pRipple label="Limpar"
+                    class="p-mb-3 p-mr-2 p-button-outlined p-button-secondary" [disabled]="editandoRegistroExistente"
+                    (click)="limpar()">
+                </button>
+                <button type="submit" pButton pRipple label="Salvar" class="p-mb-3 p-mr-2 p-button-secondary"
+                    icon="pi pi-save"
+                    [disabled]="!formulario.valid ||(editandoRegistroExistente && !formulario.touched)">
+                </button>
+            </div>
         </form>
     </div>
 </div>

@@ -15,7 +15,7 @@ import { Coluna, TipoColuna } from "./coluna";
 export class TabelaCrudComponent<T> implements OnInit {
     @Input("dados") dados: T[];
     @Input("selecionados") selecionados: T[];
-    @Input("efeitoLinhaSelecionada") efeitoLinhaSelecionada = true;
+    @Input("efeitoLinhaSelecionada") efeitoLinhaSelecionada = false;
     @Input("paginacao") paginacao = true;
     @Input("quantidadeLinhas") quantidadeLinhas = 10;
     @Input("colunas") colunas: any[];
