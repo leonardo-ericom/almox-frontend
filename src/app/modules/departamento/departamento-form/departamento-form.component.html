@@ -2,7 +2,7 @@
     <div class="p-col-12">
         <div class="p-d-flex p-jc-between">
             <titulo-pagina-crud
-                entidade="Usuários"
+                entidade="Departamentos"
                 acao="{{
                     modoVisualizacao
                         ? 'Visualizar'
@@ -28,29 +28,19 @@
                     label="Consultar"
                     class="p-mb-3 p-mr-1 p-button-primary"
                     icon="pi pi-list"
-                    routerLink="/usuarios"
+                    routerLink="/departamentos"
                 ></button>
             </div>
         </div>
 
         <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
-            <p-messages
-                *ngIf="modoVisualizacao && formulario.touched"
-                [value]="[
-                    {
-                        severity: 'warn',
-                        summary: 'Modo de Visualização',
-                        detail: 'O Formulário está em Modo de Visualização.'
-                    }
-                ]"
-                [enableService]="false"
-            ></p-messages>
-            <usuario-form-section
-                [usuario]="usuario"
-                [tiposUsuarios]="tiposUsuarios"
+            <departamento-form-section
+                [departamento]="departamento"
+                [usuarios]="usuarios"
                 [modoVisualizacao]="modoVisualizacao"
             >
-            </usuario-form-section>
+            </departamento-form-section>
+
             <div class="p-grid p-justify-end" *ngIf="!modoVisualizacao">
                 <button
                     type="button"
@@ -68,10 +58,7 @@
                     label="Salvar"
                     class="p-mb-3 p-mr-1 p-button-secondary"
                     icon="pi pi-save"
-                    [disabled]="
-                        !formulario.valid ||
-                        (editandoRegistroExistente && !formulario.touched)
-                    "
+                    [disabled]="!formulario.valid"
                 ></button>
             </div>
         </form>

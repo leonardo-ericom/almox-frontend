@@ -23,6 +23,13 @@ const routes: Routes = [
                         module => module.ProdutoModule
                     ),
             },
+            {
+                path: "departamentos",
+                loadChildren: () =>
+                    import("../departamento/departamento.module").then(
+                        module => module.DepartamentoModule
+                    ),
+            },
         ],
     },
     {

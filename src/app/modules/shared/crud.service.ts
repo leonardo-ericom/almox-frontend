@@ -18,8 +18,12 @@ export abstract class CrudService<T, ID> {
     return this._http.get<T>(this._base + "/" + id);
   }
 
-  buscarTodos(filtro : any): Observable<T[]> {
+  buscarTodosFiltrado(filtro : any): Observable<T[]> {
     return this._http.post<T[]>(`${this._base}/listar`, filtro)
+  }
+
+  buscarTodos(): Observable<T[]> {
+    return this._http.get<T[]>(`${this._base}/listar`)
   }
 
   excluir(id: ID): Observable<T> {
