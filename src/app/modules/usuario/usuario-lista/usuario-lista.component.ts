@@ -71,7 +71,7 @@ export class UsuarioListaComponent implements OnInit {
 
     buscar(filtro: any): void {
         this.usuarioService
-            .buscarTodos(filtro)
+            .buscarTodosFiltrado(filtro)
             .subscribe(
                 usuariosEncontrados => (this.usuarios = usuariosEncontrados)
             );

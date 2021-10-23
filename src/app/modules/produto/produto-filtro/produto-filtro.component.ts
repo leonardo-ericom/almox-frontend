@@ -6,15 +6,12 @@ import { Grupo } from "../../../model/grupo";
 
 @Component({
     selector: "produto-filtro",
-    templateUrl: "./produto-filtro.component.html"
+    templateUrl: "./produto-filtro.component.html",
 })
 export class ProdutoFiltroComponent {
-    @Output("buscar")
-    buscarEvent: EventEmitter<any> = new EventEmitter();
-    @Input()
-    grupos: Grupo[];
-    @Input()
-    departamentos: Departamento[];
+    @Output("buscar") buscarEvent: EventEmitter<any> = new EventEmitter();
+    @Input() grupos: Grupo[];
+    @Input() departamentos: Departamento[];
 
     filtro = {
         descricao: null,

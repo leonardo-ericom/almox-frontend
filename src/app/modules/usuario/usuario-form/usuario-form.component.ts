@@ -2,6 +2,7 @@ import { Component, OnInit, ViewChild } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
 import { MessageService } from "primeng/api";
+import { Observable } from "rxjs";
 import { Usuario } from "src/app/model/usuario";
 import { rotaEstaEmModoVisualizacao } from "src/app/utils/RouterUtil";
 
@@ -9,6 +10,7 @@ import { Departamento } from "../../../model/departamento";
 import { CommonService } from "../../shared/common.service";
 import { HandleErrorService } from "../../shared/handle-error.service";
 import { UsuarioService } from "../usuario.service";
+import { DepartamentoService } from "./../../departamento/departamento.service";
 
 @Component({
     selector: "usuario-form",
@@ -16,7 +18,7 @@ import { UsuarioService } from "../usuario.service";
 })
 export class UsuarioFormComponent implements OnInit {
     usuario: Usuario = {};
-    departamentos: Departamento[];
+    departamentos$: Observable<Departamento[]>;
     tiposUsuarios: any[];
     editandoRegistroExistente: boolean;
     modoVisualizacao: boolean;
@@ -24,6 +26,7 @@ export class UsuarioFormComponent implements OnInit {
 
     constructor(
         private usuarioService: UsuarioService,
+        private departamentoService: DepartamentoService,
         private handleErrorService: HandleErrorService,
         private messageService: MessageService,
         private commonService: CommonService,
@@ -38,7 +41,7 @@ export class UsuarioFormComponent implements OnInit {
                 this.editandoRegistroExistente = true;
                 this.usuarioService
                     .buscarPorId(id)
-                    .subscribe(usuario => (this.usuario = usuario));
+                    .subscribe(usuario => {console.log(usuario);this.usuario = usuario});
             }
         });
 
@@ -48,6 +51,7 @@ export class UsuarioFormComponent implements OnInit {
                 enumeradores =>
                     (this.tiposUsuarios = enumeradores.tiposUsuarios)
             );
+        this.departamentos$ = this.departamentoService.buscarTodos();
         this.modoVisualizacao = rotaEstaEmModoVisualizacao(
             this.activatedRoute.snapshot
         );
@@ -58,15 +62,7 @@ export class UsuarioFormComponent implements OnInit {
             ? this.usuarioService.atualizar(this.usuario.id, this.usuario)
             : this.usuarioService.criar(this.usuario);
         httpSubscriber.subscribe(
-            success => {
-                this.messageService.add({
-                    severity: "success",
-                    summary: "Sucesso",
-                    detail: "Usuário Excluído",
-                    life: 3000,
-                });
-                this.router.navigate(["/usuarios/"]);
-            },
+            () => this.router.navigate(["/usuarios/"]),
             error => this.handleErrorService.handleError(error)
         );
     }
