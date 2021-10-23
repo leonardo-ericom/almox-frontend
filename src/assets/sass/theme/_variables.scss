@@ -221,24 +221,24 @@ $checkboxWidth:18px;
 $checkboxHeight:18px;
 $checkboxBorder:2px solid #757575;
 $checkboxIconFontSize:14px;
-$checkboxActiveBorderColor:$primaryColor;
-$checkboxActiveBg:$primaryColor;
+$checkboxActiveBorderColor:#f50057;
+$checkboxActiveBg:#f50057;
 $checkboxIconActiveColor:$primaryTextColor;
-$checkboxActiveHoverBg:$primaryColor;
+$checkboxActiveHoverBg:#f50057;
 $checkboxIconActiveHoverColor:$primaryTextColor;
-$checkboxActiveHoverBorderColor:$primaryColor;
+$checkboxActiveHoverBorderColor:#f50057;
 
 //radiobutton
 $radiobuttonWidth:20px;
 $radiobuttonHeight:20px;
 $radiobuttonBorder:2px solid #757575;
 $radiobuttonIconSize:10px;
-$radiobuttonActiveBorderColor:$primaryColor;
+$radiobuttonActiveBorderColor:#f50057;
 $radiobuttonActiveBg:$primaryTextColor;
-$radiobuttonIconActiveColor:$primaryColor;
+$radiobuttonIconActiveColor:#f50057;
 $radiobuttonActiveHoverBg:$primaryTextColor;
-$radiobuttonIconActiveHoverColor:$primaryColor;
-$radiobuttonActiveHoverBorderColor:$primaryColor;
+$radiobuttonIconActiveHoverColor:#f50057;
+$radiobuttonActiveHoverBorderColor:#f50057;
 
 //colorpicker
 $colorPickerPreviewWidth:2rem;
@@ -338,9 +338,9 @@ $inputSwitchSliderPadding:-1px;
 $inputSwitchSliderOffBg:rgba(0,0,0,.38);
 $inputSwitchHandleOffBg:#ffffff;
 $inputSwitchSliderOffHoverBg:rgba(0,0,0,.38);
-$inputSwitchSliderOnBg:rgba($primaryColor, .5);
-$inputSwitchSliderOnHoverBg:rgba($primaryColor, .5);
-$inputSwitchHandleOnBg:$primaryColor;
+$inputSwitchSliderOnBg:rgba(#f50057, .5);
+$inputSwitchSliderOnHoverBg:rgba(#f50057, .5);
+$inputSwitchHandleOnBg:#f50057;
 
 //panel
 $panelHeaderBorderColor: #e0e0e0 !default;
