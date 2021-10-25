@@ -1,8 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { NgModule } from "@angular/core";
+import { RouterModule, Routes } from "@angular/router";
 
-import { LoginComponent } from './login/login.component';
-import { MainComponent } from './main/main.component';
+import { LoginComponent } from "./login/login.component";
+import { MainComponent } from "./main/main.component";
 
 const routes: Routes = [
     {
@@ -28,6 +28,13 @@ const routes: Routes = [
                 loadChildren: () =>
                     import("../departamento/departamento.module").then(
                         module => module.DepartamentoModule
+                    ),
+            },
+            {
+                path: "grupos",
+                loadChildren: () =>
+                    import("../grupo/grupo.module").then(
+                        module => module.GrupoModule
                     ),
             },
         ],

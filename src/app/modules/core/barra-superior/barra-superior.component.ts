@@ -32,29 +32,28 @@ export class BarraSuperiorComponent implements OnInit {
                         icon: "pi pi-tags",
                         routerLink: "/departamentos",
                     },
+                    {
+                        label: "Grupos",
+                        icon: "fa fa-th",
+                        routerLink: "/grupos",
+                    },
                 ],
             },
             {
                 label: "Financeiro",
                 icon: "pi pi-money-bill",
-                items: [
-
-                ],
+                items: [],
             },
             {
                 label: "Movimentos",
                 icon: "pi pi-sort-alt",
-                items: [
-
-                ],
+                items: [],
             },
             {
                 label: "Relatórios",
                 icon: "pi pi-file-o",
-                items: [
-
-                ],
-            }
+                items: [],
+            },
         ];
     }
 }
