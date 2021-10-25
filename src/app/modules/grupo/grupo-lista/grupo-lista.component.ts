@@ -1,6 +1,6 @@
 import { Router } from '@angular/router';
-import { CommonService } from './../../shared/common.service';
-import { HandleErrorService } from './../../shared/handle-error.service';
+import { CommonService } from './../../shared/services/common.service';
+import { HandleErrorService } from './../../shared/services/handle-error.service';
 import { MessageService, ConfirmationService } from 'primeng/api';
 import { GrupoService } from './../grupo.service';
 import { GrupoFiltroComponent } from './../grupo-filtro/grupo-filtro.component';
@@ -11,7 +11,7 @@ import{
     criarConfiguracaoColuna,
     criarConfiguracaoColunaStatusAuditavel,
     TipoColuna,
-} from "../../shared/tabela-crud/coluna";
+} from "../../shared/components/tabela-crud/coluna";
 
 
 @Component({
@@ -57,7 +57,7 @@ private router: Router
 
   buscar(filtro: any): void{
       this.grupoService
-      .buscarTodos(filtro)
+      .buscarTodosFiltrado(filtro)
       .subscribe(
           gruposEncontrados => (this.grupos = gruposEncontrados)
       );
