@@ -18,7 +18,7 @@
                     pButton
                     pRipple
                     label="Editar"
-                    class="p-mb-3 p-mr-2 p-button-outlined p-button-primary"
+                    class="p-mb-3 p-mr-2 p-button-outlined"
                     icon="pi pi-pencil"
                     (click)="habilitarModoEdicao()"
                 ></button>
@@ -26,7 +26,7 @@
                     pButton
                     pRipple
                     label="Consultar"
-                    class="p-mb-3"
+                    class="p-mb-3 p-mr-1 p-shadow-4 p-button-secondary"
                     icon="pi pi-list"
                     routerLink="/produtos"
                 ></button>
@@ -62,7 +62,7 @@
                     pButton
                     pRipple
                     label="Limpar"
-                    class="p-mb-3 p-mr-2 p-button-outlined p-button-secondary"
+                    class="p-mb-3 p-mr-2 p-button-outlined"
                     [disabled]="editandoRegistroExistente"
                     (click)="limpar()"
                 ></button>
@@ -71,9 +71,8 @@
                     pButton
                     pRipple
                     label="Salvar"
-                    class="p-mb-3 p-mr-2 p-button-secondary"
+                    class="p-mb-3 p-mr-2"
                     icon="pi pi-save"
-                    [disabled]="!formulario.valid"
                 ></button>
             </div>
         </form>

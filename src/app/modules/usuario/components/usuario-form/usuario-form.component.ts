@@ -1,16 +1,16 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { NgForm } from '@angular/forms';
-import { ActivatedRoute, Router } from '@angular/router';
-import { MessageService } from 'primeng/api';
-import { Observable } from 'rxjs';
-import { Departamento } from 'src/app/model/departamento';
-import { Usuario } from 'src/app/model/usuario';
-import { DepartamentoService } from 'src/app/modules/departamento/services/departamento.service';
-import { CommonService } from 'src/app/modules/shared/services/common.service';
-import { HandleErrorService } from 'src/app/modules/shared/services/handle-error.service';
-import { rotaEstaEmModoVisualizacao } from 'src/app/utils/RouterUtil';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { NgForm } from "@angular/forms";
+import { ActivatedRoute, Router } from "@angular/router";
+import { MessageService } from "primeng/api";
+import { Observable } from "rxjs";
+import { Departamento } from "src/app/model/departamento";
+import { Usuario } from "src/app/model/usuario";
+import { DepartamentoService } from "src/app/modules/departamento/services/departamento.service";
+import { CommonService } from "src/app/modules/shared/services/common.service";
+import { HandleErrorService } from "src/app/modules/shared/services/handle-error.service";
+import { rotaEstaEmModoVisualizacao } from "src/app/utils/RouterUtil";
 
-import { UsuarioService } from '../../services/usuario.service';
+import { UsuarioService } from "../../services/usuario.service";
 
 @Component({
     selector: "usuario-form",
@@ -39,9 +39,10 @@ export class UsuarioFormComponent implements OnInit {
             const id: number = params["id"];
             if (id) {
                 this.editandoRegistroExistente = true;
-                this.usuarioService
-                    .buscarPorId(id)
-                    .subscribe(usuario => {console.log(usuario);this.usuario = usuario});
+                this.usuarioService.buscarPorId(id).subscribe(usuario => {
+                    console.log(usuario);
+                    this.usuario = usuario;
+                });
             }
         });
 
@@ -58,6 +59,7 @@ export class UsuarioFormComponent implements OnInit {
     }
 
     onSubmit(formulario: NgForm): void {
+        if (!formulario.valid) return;
         const httpSubscriber = this.editandoRegistroExistente
             ? this.usuarioService.atualizar(this.usuario.id, this.usuario)
             : this.usuarioService.criar(this.usuario);

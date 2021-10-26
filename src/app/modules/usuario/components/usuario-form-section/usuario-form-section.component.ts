@@ -1,6 +1,7 @@
-import { Component, Input } from '@angular/core';
-import { ControlContainer, NgForm } from '@angular/forms';
-import { Usuario } from 'src/app/model/usuario';
+import { AfterViewInit, ViewChild } from "@angular/core";
+import { Component, Input } from "@angular/core";
+import { ControlContainer, NgForm } from "@angular/forms";
+import { Usuario } from "src/app/model/usuario";
 
 @Component({
     selector: "usuario-form-section",
@@ -11,6 +12,7 @@ export class UsuarioFormSectionComponent {
     @Input() usuario: Usuario;
     @Input() tiposUsuarios: any[];
     @Input() modoVisualizacao: boolean;
+    @Input() formulario: NgForm;
 
     constructor() {}
 }

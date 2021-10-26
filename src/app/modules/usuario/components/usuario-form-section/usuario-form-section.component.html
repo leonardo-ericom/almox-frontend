@@ -18,10 +18,7 @@
                 autofocus
                 [readonly]="modoVisualizacao"
             />
-            <small
-                class="p-invalid p-error"
-                *ngIf="!nomeControl.valid && nomeControl.touched"
-            >
+            <small class="p-invalid p-error" *ngIf="formulario.submitted &&  !nomeControl.valid">
                 O nome do usuário é necessário.
             </small>
         </div>
@@ -42,8 +39,8 @@
             <small
                 class="p-invalid p-error"
                 *ngIf="
+                    formulario.submitted &&
                     !emailControl.valid &&
-                    emailControl.touched &&
                     !usuario.email
                 "
             >
@@ -52,7 +49,7 @@
             <small
                 class="p-invalid p-error"
                 *ngIf="
-                    !emailControl.valid && emailControl.touched && usuario.email
+                    formulario.submitted && !emailControl.valid && usuario.email
                 "
             >
                 O email do usuário é inválido.
@@ -75,7 +72,7 @@
             ></p-dropdown>
             <small
                 class="p-invalid p-error"
-                *ngIf="!tipoUsuarioControl.valid && tipoUsuarioControl.touched"
+                *ngIf="formulario.submitted && !tipoUsuarioControl.valid"
             >
                 O tipo do usuário é necessário.
             </small>
@@ -88,9 +85,5 @@
     <ng-template pTemplate="subtitle"
         >Dados de auditoria do usuário</ng-template
     >
-    <auditoria-form-section
-        [auditavel]="usuario"
-    >
-    </auditoria-form-section>
-
+    <auditoria-form-section [auditavel]="usuario"> </auditoria-form-section>
 </p-card>

@@ -26,7 +26,7 @@
                     pButton
                     pRipple
                     label="Consultar"
-                    class="p-mb-3 p-mr-1 p-button-primary"
+                    class="p-mb-3 p-mr-1 p-shadow-4 p-button-secondary"
                     icon="pi pi-list"
                     routerLink="/usuarios"
                 ></button>
@@ -49,6 +49,7 @@
                 [usuario]="usuario"
                 [tiposUsuarios]="tiposUsuarios"
                 [modoVisualizacao]="modoVisualizacao"
+                [formulario]="formulario"
             >
             </usuario-form-section>
             <div class="p-grid p-justify-end" *ngIf="!modoVisualizacao">
@@ -66,12 +67,8 @@
                     pButton
                     pRipple
                     label="Salvar"
-                    class="p-mb-3 p-mr-1 p-button-secondary"
+                    class="p-mb-3 p-mr-1"
                     icon="pi pi-save"
-                    [disabled]="
-                        !formulario.valid ||
-                        (editandoRegistroExistente && !formulario.touched)
-                    "
                 ></button>
             </div>
         </form>
