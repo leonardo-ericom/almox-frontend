@@ -28,6 +28,7 @@ export class BarraSuperiorComponent implements OnInit {
                         routerLink: "/produtos",
                     },
                     {
+
                         label: "Departamentos",
                         icon: "pi pi-tags",
                         routerLink: "/departamentos",
@@ -36,6 +37,12 @@ export class BarraSuperiorComponent implements OnInit {
                         label: "Grupos",
                         icon: "fa fa-th",
                         routerLink: "/grupos",
+                    },
+                    {
+                        label: "Fabricante",
+                        icon: "fa fa-industry",
+                        routerLink: "/produtos",
+
                     },
                 ],
             },

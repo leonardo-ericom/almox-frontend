@@ -1,15 +1,16 @@
-import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
-import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
-import { BrowserModule } from '@angular/platform-browser';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { ConfirmationService, MessageService } from 'primeng/api';
+import { HashLocationStrategy, LocationStrategy } from "@angular/common";
+import { HttpClientModule } from "@angular/common/http";
+import { NgModule } from "@angular/core";
+import { FormsModule } from "@angular/forms";
+import { BrowserModule } from "@angular/platform-browser";
+import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
+import { ConfirmationService, MessageService } from "primeng/api";
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { CoreModule } from './modules/core/core.module';
-import { UsuarioModule } from './modules/usuario/usuario.module';
+import { AppRoutingModule } from "./app-routing.module";
+import { AppComponent } from "./app.component";
+import { CoreModule } from "./modules/core/core.module";
+import { UsuarioModule } from "./modules/usuario/usuario.module";
+import { FabricanteFormComponent } from "./modules/fabricante/fabricante-form/fabricante-form.component";
 
 @NgModule({
     imports: [
@@ -19,15 +20,13 @@ import { UsuarioModule } from './modules/usuario/usuario.module';
         HttpClientModule,
         BrowserAnimationsModule,
         UsuarioModule,
-        CoreModule
+        CoreModule,
     ],
-    declarations: [
-        AppComponent,
-    ],
+    declarations: [AppComponent],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         MessageService,
-        ConfirmationService
+        ConfirmationService,
     ],
     bootstrap: [AppComponent],
 })
