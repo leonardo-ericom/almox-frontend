@@ -30,6 +30,13 @@ const routes: Routes = [
                         module => module.DepartamentoModule
                     ),
             },
+            {
+                path: "grupos",
+                loadChildren: () =>
+                    import("../grupo/grupo.module").then(
+                        module => module.GrupoModule
+                    ),
+            },
         ],
     },
     {
