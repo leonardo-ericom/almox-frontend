@@ -10,7 +10,6 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CoreModule } from './modules/core/core.module';
 import { UsuarioModule } from './modules/usuario/usuario.module';
-import { ContatoComponent } from './modules/contato/contato/contato.component';
 
 @NgModule({
     imports: [
@@ -24,7 +23,6 @@ import { ContatoComponent } from './modules/contato/contato/contato.component';
     ],
     declarations: [
         AppComponent,
-        ContatoComponent,
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
