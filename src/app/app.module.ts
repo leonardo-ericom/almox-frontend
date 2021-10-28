@@ -10,7 +10,6 @@ import { AppRoutingModule } from "./app-routing.module";
 import { AppComponent } from "./app.component";
 import { CoreModule } from "./modules/core/core.module";
 import { UsuarioModule } from "./modules/usuario/usuario.module";
-import { FabricanteFormComponent } from "./modules/fabricante/fabricante-form/fabricante-form.component";
 
 @NgModule({
     imports: [

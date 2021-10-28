@@ -37,6 +37,13 @@ const routes: Routes = [
                         module => module.GrupoModule
                     ),
             },
+            {
+                path: "fabricantes",
+                loadChildren: () =>
+                    import("../fabricante/fabricante.module").then(
+                        module => module.FabricanteModule
+                    ),
+            },
         ],
     },
     {

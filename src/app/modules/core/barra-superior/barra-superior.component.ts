@@ -41,7 +41,7 @@ export class BarraSuperiorComponent implements OnInit {
                     {
                         label: "Fabricante",
                         icon: "fa fa-industry",
-                        routerLink: "/produtos",
+                        routerLink: "/fabricantes",
 
                     },
                 ],
