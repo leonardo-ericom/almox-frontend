@@ -12,7 +12,7 @@
         />
     </div>
 
-    <div class="p-field p-col-6">
+    <div class="p-field p-col-6" *ngIf="auditavel.dataCriacao">
         <label for="dataCriacao">Data Criação</label>
         <input
             #dataCriacaoControl="ngModel"
@@ -39,7 +39,7 @@
         />
     </div>
 
-    <div class="p-field p-col-6">
+    <div class="p-field p-col-6" *ngIf="auditavel.dataAlteracao">
         <label for="dataAlteracao">Data Alteração</label>
         <input
             #dataAlteracaoControl="ngModel"

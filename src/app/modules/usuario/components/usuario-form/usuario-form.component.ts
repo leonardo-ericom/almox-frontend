@@ -46,12 +46,10 @@ export class UsuarioFormComponent implements OnInit {
             }
         });
 
-        this.commonService
-            .buscarEnumeradores()
-            .subscribe(
-                enumeradores =>
-                    (this.tiposUsuarios = enumeradores.tiposUsuarios)
-            );
+        this.commonService.buscarEnumeradores().subscribe(
+            enumeradores => (this.tiposUsuarios = enumeradores.tiposUsuarios),
+            error => this.handleErrorService.handleError(error)
+        );
         this.departamentos$ = this.departamentoService.buscarTodos();
         this.modoVisualizacao = rotaEstaEmModoVisualizacao(
             this.activatedRoute.snapshot

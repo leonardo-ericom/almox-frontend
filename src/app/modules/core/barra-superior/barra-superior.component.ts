@@ -18,14 +18,14 @@ export class BarraSuperiorComponent implements OnInit {
                 icon: "pi pi-list",
                 items: [
                     {
-                        label: "Usuários",
-                        icon: "pi pi-users",
-                        routerLink: "/usuarios",
-                    },
-                    {
                         label: "Produtos",
                         icon: "fa fa-product-hunt",
                         routerLink: "/produtos",
+                    },
+                    {
+                        label: "Grupos",
+                        icon: "fa fa-th",
+                        routerLink: "/grupos",
                     },
                     {
                         label: "Departamentos",
@@ -33,9 +33,9 @@ export class BarraSuperiorComponent implements OnInit {
                         routerLink: "/departamentos",
                     },
                     {
-                        label: "Grupos",
-                        icon: "fa fa-th",
-                        routerLink: "/grupos",
+                        label: "Usuários",
+                        icon: "pi pi-users",
+                        routerLink: "/usuarios",
                     },
                 ],
             },

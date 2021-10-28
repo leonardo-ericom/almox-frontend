@@ -1,20 +1,18 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { Router } from '@angular/router';
-import { ConfirmationService, MessageService } from 'primeng/api';
-import { Observable, Subscriber } from 'rxjs';
-import { Usuario } from 'src/app/model/usuario';
+import { Component, OnInit, ViewChild } from "@angular/core";
+import { Router } from "@angular/router";
+import { ConfirmationService, MessageService } from "primeng/api";
+import { Observable, Subscriber } from "rxjs";
+import { Usuario } from "src/app/model/usuario";
 import {
     criarConfiguracaoColuna,
     criarConfiguracaoColunaStatusAuditavel,
     TipoColuna,
-} from 'src/app/modules/shared/components/tabela-crud/coluna';
-import { CommonService } from 'src/app/modules/shared/services/common.service';
-import { HandleErrorService } from 'src/app/modules/shared/services/handle-error.service';
+} from "src/app/modules/shared/components/tabela-crud/coluna";
+import { CommonService } from "src/app/modules/shared/services/common.service";
+import { HandleErrorService } from "src/app/modules/shared/services/handle-error.service";
 
-import { UsuarioService } from '../../services/usuario.service';
-import { UsuarioFiltroComponent } from '../usuario-filtro/usuario-filtro.component';
-
-
+import { UsuarioService } from "../../services/usuario.service";
+import { UsuarioFiltroComponent } from "../usuario-filtro/usuario-filtro.component";
 
 @Component({
     selector: "usuario-lista",
@@ -41,12 +39,10 @@ export class UsuarioListaComponent implements OnInit {
     ) {}
 
     ngOnInit(): void {
-        this.commonService
-            .buscarEnumeradores()
-            .subscribe(
-                enumeradores =>
-                    (this.tiposUsuarios = enumeradores.tiposUsuarios)
-            );
+        this.commonService.buscarEnumeradores().subscribe(
+            enumeradores => (this.tiposUsuarios = enumeradores.tiposUsuarios),
+            error => this.handleErrorService.handleError(error)
+        );
 
         this.colunas = [
             criarConfiguracaoColuna("id", "#", TipoColuna.TEXTO),

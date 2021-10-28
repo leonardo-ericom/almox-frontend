@@ -20,6 +20,8 @@
         <div class="card">
             <produto-filtro
                 #filtroComponent
+                [grupos]="grupos$ | async"
+                [departamentos]="departamentos$ | async"
                 (buscar)="buscar($event.filtro)"
             ></produto-filtro>
             <tabela-crud
