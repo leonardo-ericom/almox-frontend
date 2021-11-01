@@ -22,7 +22,7 @@ import { UsuarioModule } from './modules/usuario/usuario.module';
         CoreModule
     ],
     declarations: [
-        AppComponent
+        AppComponent,
     ],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
