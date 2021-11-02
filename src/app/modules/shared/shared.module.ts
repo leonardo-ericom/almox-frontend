@@ -25,6 +25,7 @@ import { InputButtonComponent } from './components/input-button.component';
         SubmitButtonComponent,
         StepComponent,
         InputButtonComponent,
+
     ],
     imports: [CommonModule, PrimengModule],
     providers: [CommonService, HandleErrorService],
