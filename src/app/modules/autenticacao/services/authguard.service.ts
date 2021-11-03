@@ -1,3 +1,4 @@
+import { environment } from "src/environments/environment";
 import { Injectable } from "@angular/core";
 import {
     ActivatedRouteSnapshot,
@@ -16,8 +17,10 @@ export class AuthguardService implements CanActivate {
         route: ActivatedRouteSnapshot,
         state: RouterStateSnapshot
     ): boolean {
-        const accessToken = localStorage.getItem("almox_access_token");
-        if (accessToken && accessToken !== 'null') {
+        const accessToken = localStorage.getItem(
+            environment.auth.tokenLocalStorage
+        );
+        if (accessToken && accessToken !== "null" && accessToken != "undefined") {
             return true;
         }
         this.router.navigate(["/login"]);

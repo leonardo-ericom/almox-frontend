@@ -8,7 +8,7 @@ import { ConfirmationService, MessageService } from 'primeng/api';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpInterceptorService } from './config/auth/http-interceptor.service';
+import { HttpInterceptorService } from './modules/autenticacao/services/http-interceptor.service';
 import { CoreModule } from './modules/core/core.module';
 import { UsuarioModule } from './modules/usuario/usuario.module';
 

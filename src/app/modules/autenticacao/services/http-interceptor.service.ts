@@ -10,6 +10,7 @@ import { Injectable } from "@angular/core";
 import { Router } from "@angular/router";
 import { Observable } from "rxjs";
 import { tap } from "rxjs/operators";
+import { environment } from "src/environments/environment";
 
 @Injectable({
     providedIn: "root",
@@ -21,12 +22,14 @@ export class HttpInterceptorService implements HttpInterceptor {
         request: HttpRequest<any>,
         next: HttpHandler
     ): Observable<HttpEvent<any>> {
-        const token = localStorage.getItem("almox_access_token");
-        if (token != null) {
+        const accessToken = localStorage.getItem(
+            environment.auth.tokenLocalStorage
+        );
+        if (accessToken != null) {
             request = request.clone({
                 setHeaders: {
                     "Content-Type": "application/json",
-                    Authorization: `bearer ${token}`,
+                    Authorization: `bearer ${accessToken}`,
                 },
             });
         }
@@ -37,7 +40,9 @@ export class HttpInterceptorService implements HttpInterceptor {
                 (err: any) => {
                     if (err instanceof HttpErrorResponse) {
                         if (err.status === HttpStatusCode.Unauthorized) {
-                            localStorage.removeItem("almox_access_token");
+                            localStorage.removeItem(
+                                environment.auth.tokenLocalStorage
+                            );
                             this.router.navigate(["/login"]);
                         }
                     }
