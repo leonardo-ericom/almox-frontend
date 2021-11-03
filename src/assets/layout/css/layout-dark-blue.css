@@ -436,7 +436,7 @@
   margin-top: 12px;
 }
 .dashboard .user-card .user-card-content .user-detail ul li .project-progressbar .project-progressbar-value {
-  background-color: #5180ce;
+  background-color: #e0e0e0;
   height: 4px;
 }
 .dashboard .chat .p-panel-content {
@@ -1275,7 +1275,7 @@ body a {
 .layout-wrapper .topbar {
   position: fixed;
   width: 100%;
-  background-color: #3A3A3A;
+  background-color: #06c !important;
   height: 60px;
   box-sizing: border-box;
   z-index: 100;
@@ -1343,8 +1343,8 @@ body a {
   position: absolute;
   right: -5px;
   top: -5px;
-  background-color: #5180ce;
-  color: #ffffff;
+  background-color: #e0e0e0;
+  color: rgba(0, 0, 0, 0.87);
   padding: 2px 4px;
   display: block;
   font-size: 12px;
@@ -1437,14 +1437,14 @@ body a {
   vertical-align: middle;
 }
 .layout-wrapper .topbar .topbar-menu > li > ul a .topbar-submenuitem-badge {
-  background-color: #5180ce;
+  background-color: #e0e0e0;
   padding: 2px 4px;
   display: block;
   font-size: 12px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  color: #ffffff;
+  color: rgba(0, 0, 0, 0.87);
   float: right;
 }
 .layout-wrapper .topbar .topbar-menu > li > ul a:hover {
@@ -1723,8 +1723,8 @@ body a {
   height: 16px;
   margin-right: 6px;
   text-align: center;
-  background-color: #5180ce;
-  color: #ffffff;
+  background-color: #e0e0e0;
+  color: rgba(0, 0, 0, 0.87);
   font-size: 12px;
   font-weight: 700;
   line-height: 16px;
@@ -1801,7 +1801,7 @@ body a {
   flex-direction: column;
   justify-content: space-between;
   min-height: 100vh;
-  background-color: #f4f4f4ff;
+  background-color: #eeefefff;
 }
 .layout-wrapper .layout-main {
   flex: 1 1 0;
@@ -1811,7 +1811,7 @@ body a {
 }
 
 .layout-wrapper .footer {
-  background-color: #f4f4f4ff;
+  background-color: #eeefefff;
   padding: 0.5em;
   margin: 0 3rem;
 }
@@ -2190,8 +2190,8 @@ body a {
   padding: 6px;
 }
 .layout-tabmenu-content .inbox-tab .inbox-labels ul li .inbox-label-badge {
-  color: #ffffff;
-  background-color: #5180ce;
+  color: rgba(0, 0, 0, 0.87);
+  background-color: #e0e0e0;
   padding: 2px 6px;
   -moz-border-radius: 3px;
   -webkit-border-radius: 3px;
@@ -2217,8 +2217,8 @@ body a {
   font-weight: 700;
   box-sizing: border-box;
   margin-right: 8px;
-  background-color: #5180ce;
-  color: #ffffff;
+  background-color: #e0e0e0;
+  color: rgba(0, 0, 0, 0.87);
 }
 .layout-tabmenu-content .calendar-tab ul li .calendar-event-date span {
   width: 100%;
@@ -2281,7 +2281,7 @@ body a {
   margin-left: 42px;
 }
 .layout-tabmenu-content .projects-tab ul li .project-progressbar .project-progressbar-value {
-  background-color: #5180ce;
+  background-color: #e0e0e0;
   height: 4px;
 }
 .layout-tabmenu-content .team-tab ul {
@@ -2843,7 +2843,7 @@ p:last-child {
   margin-top: 12px;
 }
 .widget-user-card .user-card-content .user-detail ul li .project-progressbar .project-progressbar-value {
-  background-color: #5180ce;
+  background-color: #e0e0e0;
   height: 4px;
 }
 
