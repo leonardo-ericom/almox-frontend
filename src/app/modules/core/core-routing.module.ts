@@ -9,13 +9,6 @@ const routes: Routes = [
         component: MainComponent,
         children: [
             {
-                path: "usuarios",
-                loadChildren: () =>
-                    import("../usuario/usuario.module").then(
-                        module => module.UsuarioModule
-                    ),
-            },
-            {
                 path: "produtos",
                 loadChildren: () =>
                     import("../produto/produto.module").then(

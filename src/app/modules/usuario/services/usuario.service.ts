@@ -1,9 +1,8 @@
-import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-
-import { environment } from '../../../../environments/environment';
-import { Usuario } from '../../../model/usuario';
-import { CrudService } from '../../shared/services/crud.service';
+import { HttpClient } from "@angular/common/http";
+import { Injectable } from "@angular/core";
+import { Usuario } from "src/app/model/usuario";
+import { environment } from "src/environments/environment";
+import { CrudService } from "../../shared/services/crud.service";
 
 @Injectable({
     providedIn: "root",

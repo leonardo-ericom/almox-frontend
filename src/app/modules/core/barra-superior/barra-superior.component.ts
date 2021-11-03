@@ -32,11 +32,6 @@ export class BarraSuperiorComponent implements OnInit {
                         icon: "pi pi-tags",
                         routerLink: "/departamentos",
                     },
-                    {
-                        label: "Usuários",
-                        icon: "pi pi-users",
-                        routerLink: "/usuarios",
-                    },
                 ],
             },
             {
