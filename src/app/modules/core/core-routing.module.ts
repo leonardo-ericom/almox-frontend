@@ -1,3 +1,4 @@
+import { ItemRequisicaoModule } from './../item-requisicao/item_requisicao.module';
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
 
@@ -36,6 +37,13 @@ const routes: Routes = [
                 loadChildren: () =>
                     import("../grupo/grupo.module").then(
                         module => module.GrupoModule
+                    ),
+            },
+            {
+                path: "item-requisicao",
+                loadChildren: () =>
+                    import("../item-requisicao/item_requisicao.module").then(
+                        module => module.ItemRequisicaoModule
                     ),
             },
         ],
