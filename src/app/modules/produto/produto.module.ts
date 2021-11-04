@@ -1,3 +1,4 @@
+
 import { CommonModule } from '@angular/common';
 import { NgModule } from '@angular/core';
 
@@ -8,6 +9,7 @@ import { ProdutoFiltroComponent } from './components/produto-filtro/produto-filt
 import { ProdutoFormSectionComponent } from './components/produto-form-section/produto-form-section.component';
 import { ProdutoFormComponent } from './components/produto-form/produto-form.component';
 import { ProdutoListaComponent } from './components/produto-lista/produto-lista.component';
+import { ProdutoModalListaComponent } from './components/produto-modal-lista/produto-modal-lista.component';
 import { ProdutoRoutingModule } from './produto-routing.module';
 import { ProdutoService } from './services/produto.service';
 
@@ -17,8 +19,10 @@ import { ProdutoService } from './services/produto.service';
         ProdutoFiltroComponent,
         ProdutoFormComponent,
         ProdutoFormSectionComponent,
+        ProdutoModalListaComponent
     ],
     imports: [CommonModule, ProdutoRoutingModule, PrimengModule, SharedModule, FornecedorModule],
     providers: [ProdutoService],
+    exports: [ProdutoModalListaComponent]
 })
 export class ProdutoModule {}
