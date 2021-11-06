@@ -14,6 +14,7 @@ export class ItemRequisicaoDialogComponent implements OnDestroy {
         private messageService: MessageService
     ) {}
 
+    produtoSelecionado: Produto;
     dialogItemRequisicao: DynamicDialogRef;
 
     show() {
@@ -34,6 +35,7 @@ export class ItemRequisicaoDialogComponent implements OnDestroy {
                     summary: "Product Selected",
                     detail: produto.descricao,
                 });
+                this.produtoSelecionado = produto;
             }
         });
     }

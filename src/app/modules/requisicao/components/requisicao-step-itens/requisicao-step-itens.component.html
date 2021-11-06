@@ -1,0 +1,17 @@
+<step
+    exibirBotaoProximo="true"
+    exibirBotaoAnterior="true"
+    titulo="Itens"
+    subtitulo="Selecione os itens"
+    (anterior)="stepAnterior()"
+    (proximo)="proximoStep()"
+>
+    <div class="p-fluid">
+        <div class="p-fluid p-formgrid p-grid">
+            <div class="p-field p-col-12">
+                <label for="criadoPor">Nome</label>
+                <input type="text" id="nome" name="nome" pInputText required />
+            </div>
+        </div>
+    </div>
+</step>

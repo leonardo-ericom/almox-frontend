@@ -11,6 +11,8 @@ import { TabelaCrudComponent } from "./components/tabela-crud/tabela-crud.compon
 import { TituloPaginaCrudComponent } from "./components/titulo-pagina-crud/titulo-pagina-crud.component";
 import { CommonService } from "./services/common.service";
 import { HandleErrorService } from "./services/handle-error.service";
+import { StepComponent } from './components/step/step.component';
+import { InputButtonComponent } from './components/input-button.component';
 
 @NgModule({
     declarations: [
@@ -21,6 +23,8 @@ import { HandleErrorService } from "./services/handle-error.service";
         NovoButtonComponent,
         PesquisarButtonComponent,
         SubmitButtonComponent,
+        StepComponent,
+        InputButtonComponent,
     ],
     imports: [CommonModule, PrimengModule],
     providers: [CommonService, HandleErrorService],
@@ -32,6 +36,8 @@ import { HandleErrorService } from "./services/handle-error.service";
         NovoButtonComponent,
         PesquisarButtonComponent,
         SubmitButtonComponent,
+        StepComponent,
+        InputButtonComponent
     ],
 })
 export class SharedModule {}

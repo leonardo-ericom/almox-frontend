@@ -21,9 +21,9 @@ export const Navigation: MenuItem[] = [
                 routerLink: "/departamentos",
             },
             {
-                label: "Usuários",
+                label: "Requisições",
                 icon: "pi pi-users",
-                routerLink: "/usuarios",
+                routerLink: "/requisicoes",
             },
         ],
     },

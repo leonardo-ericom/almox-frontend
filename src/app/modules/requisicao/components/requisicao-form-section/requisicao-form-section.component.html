@@ -3,6 +3,10 @@
     <ng-template pTemplate="subtitle"
         >Informe os dados departamento</ng-template
     >
-
-    <div class="p-fluid p-formgrid p-grid"></div>
+    <p-steps [model]="itensStep" [readonly]="true"></p-steps>
+    <div class="p-fluid p-formgrid p-grid">
+        <div class="p-col-12">
+            <router-outlet></router-outlet>
+        </div>
+    </div>
 </p-card>

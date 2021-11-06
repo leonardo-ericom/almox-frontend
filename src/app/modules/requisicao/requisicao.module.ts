@@ -8,6 +8,8 @@ import { RequisicaoFiltroComponent } from "./components/requisicao-filtro/requis
 import { RequisicaoFormSectionComponent } from "./components/requisicao-form-section/requisicao-form-section.component";
 import { RequisicaoFormComponent } from "./components/requisicao-form/requisicao-form.component";
 import { RequisicaoRoutingModule } from "./requisicao-routing.module";
+import { RequisicaoStepInformacoesComponent } from './components/requisicao-step-informacoes/requisicao-step-informacoes.component';
+import { RequisicaoStepItensComponent } from './components/requisicao-step-itens/requisicao-step-itens.component';
 
 @NgModule({
     declarations: [
@@ -15,6 +17,8 @@ import { RequisicaoRoutingModule } from "./requisicao-routing.module";
         RequisicaoFiltroComponent,
         RequisicaoFormComponent,
         RequisicaoFormSectionComponent,
+        RequisicaoStepInformacoesComponent,
+        RequisicaoStepItensComponent,
     ],
     imports: [
         CommonModule,
