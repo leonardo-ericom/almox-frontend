@@ -1,0 +1,30 @@
+<step
+    exibirBotaoProximo="true"
+    titulo="Informações Básicas"
+    subtitulo="Preencha as informações básicas"
+    (proximo)="onSubmit()"
+>
+    <form #formulario="ngForm" (ngSubmit)="onSubmit()">
+        <div class="p-fluid">
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-12">
+                    <label for="criadoPor">Nome</label>
+                    <input
+                        #departamentoControl
+                        type="text"
+                        id="departamento"
+                        name="departamento"
+                        [(ngModel)]="dados.departamento"
+                        pInputText
+                        required
+                    />
+                    <small
+                        class="p-invalid p-error"
+                        *ngIf="!departamentoControl.valid"
+                        >O departamento é necessário</small
+                    >
+                </div>
+            </div>
+        </div>
+    </form>
+</step>
