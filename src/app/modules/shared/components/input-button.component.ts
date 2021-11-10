@@ -10,6 +10,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
                 readonly
                 (click)="onClick()"
                 [value]="value"
+                [placeholder]="placeholder"]
                 pInputText
                 [disabled]="disabled"
             />
@@ -19,6 +20,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 export class InputButtonComponent {
     @Input("click") clickEvent = new EventEmitter<any>();
     @Input("value") value: string;
+    @Input("placeholder") placeholder: string;
     @Input("disabled") disabled = false;
 
     constructor() {}
