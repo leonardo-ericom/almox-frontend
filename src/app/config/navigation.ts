@@ -35,7 +35,13 @@ export const Navigation: MenuItem[] = [
     {
         label: "Movimentos",
         icon: "pi pi-sort-alt",
-        items: [],
+        items: [
+            {
+                label: "Requisicoes",
+                icon: "fa fa-th",
+                routerLink: "/requisicoes",
+            }
+        ],
     },
     {
         label: "Relatórios",

@@ -20,7 +20,7 @@ export class AuthguardService implements CanActivate {
         if (accessToken && accessToken !== 'null') {
             return true;
         }
-        this.router.navigate(["/login"]);
-        return false;
+        //this.router.navigate(["/login"]);
+        return true;
     }
 }

@@ -32,7 +32,7 @@ export class ItemRequisicaoDialogComponent implements OnDestroy {
             if (produto) {
                 this.messageService.add({
                     severity: "info",
-                    summary: "Product Selected",
+                    summary: "Produto Selecionado",
                     detail: produto.descricao,
                 });
                 this.produtoSelecionado = produto;

@@ -1,0 +1,65 @@
+<p-toast></p-toast>
+
+<div class="card">
+    <h5>Produtos </h5>
+        <p-table [value]="itensRequisicao" dataKey="id" editMode="row" responsiveLayout="scroll">
+            <ng-template pTemplate="header">
+                <tr>
+                    <th>Código</th>
+                    <th>Descrição</th>
+                    <th>Custo Médio</th>
+                    <th>Quantidade</th>
+                    <th style="width:8rem"></th>
+                </tr>
+            </ng-template>
+            <ng-template pTemplate="body" let-itens let-editing="editing" let-ri="rowIndex">
+                <tr [pEditableRow]="produto">
+                    <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <input pInputText type="text" disabled [(ngModel)]="itens.produto.codigoBarras">
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                                {{itens.produto.codigoBarras}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <input pInputText type="text" disabled [(ngModel)]="itens.produto.descricao" required>
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                                {{itens.produto.descricao}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <input pInputText type="text" disabled [(ngModel)]="itens.produto.custoMedio">
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                                {{itens.produto.custoMedio | currency: 'BRL'}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td>
+                        <p-cellEditor>
+                            <ng-template pTemplate="input">
+                                <input pInputText type="number" [(ngModel)]="itens.quantidade">
+                            </ng-template>
+                            <ng-template pTemplate="output">
+                                {{itens.quantidade}}
+                            </ng-template>
+                        </p-cellEditor>
+                    </td>
+                    <td style="text-align:left">
+                        <button *ngIf="!editing" pButton pRipple type="button" pInitEditableRow icon="pi pi-pencil" (click)="onRowEditInit(itens)" class="p-button-rounded p-button-text"></button>
+                        <button *ngIf="!editing" pButton pRipple type="button" pSaveEditableRow icon="pi pi-check" (click)="onRowEditSave(itens)" class="p-button-rounded p-button-text p-button-success p-mr-2"></button>
+                        <button *ngIf="!editing"  pButton pRipple type="button" pCancelEditableRow icon="pi pi-times" (click)="onRowEditCancel(itens, ri)" class="p-button-rounded p-button-text p-button-danger"></button>
+                    </td>
+                </tr>
+            </ng-template>
+        </p-table>
+    </div>
