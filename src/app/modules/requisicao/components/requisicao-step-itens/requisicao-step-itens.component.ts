@@ -2,11 +2,11 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { MessageService } from "primeng/api";
 import { DialogService, DynamicDialogRef } from "primeng/dynamicdialog";
-import { ItemRequisicao } from "src/app/model/item-requisicao";
 import { Produto } from "src/app/model/produto";
 import { ProdutoModalListaComponent } from "src/app/modules/produto/components/produto-modal-lista/produto-modal-lista.component";
 import { ProdutoService } from "src/app/modules/produto/services/produto.service";
 
+import { ItemRequisicao } from "./../../../../model/item-requisicao";
 import { RequisicaoStepMergeService } from "./../../services/requisicao-step-merge.service";
 
 @Component({
@@ -15,12 +15,8 @@ import { RequisicaoStepMergeService } from "./../../services/requisicao-step-mer
     styleUrls: ["./requisicao-step-itens.component.scss"],
 })
 export class RequisicaoStepItensComponent implements OnInit {
-
-    produtoSelecionado: Produto;
-    itensRequisicao: ItemRequisicao[];
-    clonedItens: { [id: number]: ItemRequisicao; } = {};
-    editar = false;
-
+    itemNoFormulario: ItemRequisicao;
+    itens: ItemRequisicao[];
 
     constructor(
         private router: Router,
@@ -57,63 +53,37 @@ export class RequisicaoStepItensComponent implements OnInit {
 
     ngOnInit(): void {
         console.log(this.stepMergeService.state);
-        this.itensRequisicao = [
-            {   id: 1,
+        this.itens = [
+            {
+                id: 1,
                 produto: {
                     id: 1,
                     descricao: "Escova de Dente",
                     codigoBarras: "1HHY212JEENNXXIYUY",
-                    custoMedio: 130.00
+                    custoMedio: 130.0,
                 },
-                statusItemRequisicao: 'Entregue',
-                quantidade: 0
-
+                statusItemRequisicao: "Entregue",
+                quantidade: 5,
             },
 
-            {   id: 2,
+            {
+                id: 2,
                 produto: {
                     id: 2,
                     descricao: "Escova de Cabelo",
                     codigoBarras: "1HHY212JEENNXXIYUY",
-                    custoMedio: 130.00
+                    custoMedio: 130.0,
                 },
-                statusItemRequisicao: 'Entregue',
-                quantidade: 0
-
-            }
-        ]
+                statusItemRequisicao: "Entregue",
+                quantidade: 6,
+            },
+        ];
     }
 
     stepAnterior() {
         this.router.navigate(["../informacoes"], {
             relativeTo: this.activatedRoute,
         });
-    }
-
-    onRowEditInit(itemRequisicao: ItemRequisicao) {
-        this.editar = true;
-        console.log(this.editar);
-        this.clonedItens[itemRequisicao.id] = {...itemRequisicao};
-
-    }
-
-    onRowEditSave(itemRequisicao: ItemRequisicao) {
-        //let produto = itemRequisicao.produto
-        if (itemRequisicao.quantidade > 0) {
-            delete this.clonedItens[itemRequisicao.id];
-            this.messageService.add({severity:'success', summary: 'Quantidade Editada com Sucesso'});
-        }
-        else {
-            itemRequisicao.quantidade = 1
-            this.messageService.add({severity:'error', summary: 'Error', detail:'Quantidade inválida!'});
-        }
-        this.editar = false;
-    }
-
-    onRowEditCancel(itemRequisicao: ItemRequisicao, index: number) {
-        this.itensRequisicao[index] = this.clonedItens[itemRequisicao.id];
-        delete this.clonedItens[itemRequisicao.id];
-        this.editar = false;
     }
 
     limpar(): void {}

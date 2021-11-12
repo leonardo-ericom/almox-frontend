@@ -1,56 +1,40 @@
 <p-toast></p-toast>
 <div class="p=grid">
     <div class="p-col-12">
-        <div class="p-d-flex p-jc-between">
-            <titulo-pagina-crud entidade="Itens Requisicao" acao="{{
-                modoVisualizacao ? 'Visualizar': editandoRegistroExistente
-                    ? 'Editar'
-                    : 'Novo'
-                }}"></titulo-pagina-crud>
-            <div>
-                <button *ngIf="modoVisualizacao" type="button" pButton pRippe label="Editar"
-                    class="p-mb-3 p-mr-2 p-button-outlined p-button-primary" icon="pi pi-pencil"
-                    (click)="habilitarModoEdicao()"></button>
-                <button pButton pRipple label="Consultar" class="p-mb-3 p-mr-1 p-button-primary" icon="pi pi-list"
-                    routerLink="/itens-requisicao"></button>
-            </div>
-        </div>
-
         <form #formulario="ngForm" (ngSubmit)="onSubmit(formulario)">
-            <p-messages *ngIf="modoVisualizacao && formulario.touched" [value]="[
-{
-    severity: 'warn',
-    summary: 'Modo de Visualização',
-    detail: 'O Formulário está em Modo de Visualização.'
-}
-]" [enableService]="false"></p-messages>
-            <p-card styleClass="p-mb-4 p-p-0 p-shadow-3">
-                <ng-template pTemplate="title">Itens da Requisição</ng-template>
-                <ng-template pTemplate="subtitle">Informe os Produtos e a Quantidade</ng-template>
-                <div class="p-fluid p-formgrid p-grid">
-                    <div class="p-field">
-                        <div class="p-col-12 p-md-4"></div>
-                        <label><h5 >Produtos</h5></label>
-                        <button type="button" icon="pi pi-external-link" pButton pRipple required label="Selecionar" [value]="produtoSelecionado ? produtoSelecionado.descricao : ''" (click)="show()">
-                        </button>
-                    </div>
+            <div class="p-fluid p-formgrid p-grid">
+                <div class="p-field p-col-9">
+                    <label for="codigoProduto">Produto</label>
+                    <input-button
+                        (click)="show()"
+                        [value]="item.produto.descricao || ''"
+                    ></input-button>
                 </div>
-            </p-card>
-            <div class="p-grid p-justify-end" *ngIf="!modoVisualizacao">
-                <button type="button" pButton pRipple label="Limpar"
-                    class="p-mb-3 p-mr-2 p-button-outlined p-button-secondary" [disabled]="editandoRegistroExistente"
-                    (click)="limpar()"></button>
-                <button type="submit" pButton pRipple label="Salvar" class="p-mb-3 p-mr-1 p-button-secondary"
-                    icon="pi pi-save" [disabled]="
-            !formulario.valid ||
-            (editandoRegistroExistente && !formulario.touched)
-        ">
-                </button>
+                <div class="p-field p-col-3">
+                    <label for="quantidade">Quantidade</label>
+                    <input
+                        type="text"
+                        id="quantidade"
+                        name="quantidade"
+                        [(ngModel)]="item.quantidade"
+                        pInputText
+                        readonly
+                    />
+                </div>
+            </div>
+            <div class="p-grid p-col-4">
+                <div class="p-d-flex p-jc-between">
+                    <button
+                        type="submit"
+                        pButton
+                        pRipple
+                        label="Salvar"
+                        class="p-mb-3 p-mr-1 p-button-secondary"
+                        icon="pi pi-save"
+                        [disabled]="!formulario.valid"
+                    ></button>
+                </div>
             </div>
         </form>
-
-
-
-
     </div>
 </div>
