@@ -4,7 +4,7 @@ import { ConfirmationService, MessageService } from "primeng/api";
 import { Router } from "@angular/router";
 import { Fabricante } from "./../../../../model/fabricante";
 import { Component, OnInit, ViewChild } from "@angular/core";
-import {criarConfiguracaoColuna,TipoColuna,} from "src/app/modules/shared/components/tabela-crud/coluna";
+import { criarConfiguracaoColuna, TipoColuna,} from "src/app/modules/shared/components/tabela-crud/coluna";
 import { FabricanteFiltroComponent } from "../fabricante-filtro/fabricante-filtro.component";
 
 @Component({
@@ -30,7 +30,7 @@ export class FabricanteListaComponent implements OnInit {
             criarConfiguracaoColuna("id", "#", TipoColuna.TEXTO),
             criarConfiguracaoColuna("cnpj", "Cnpj", TipoColuna.TEXTO),
             criarConfiguracaoColuna(
-                "razaSocial",
+                "razaoSocial",
                 "Razão Social",
                 TipoColuna.TEXTO
             ),
@@ -79,5 +79,12 @@ export class FabricanteListaComponent implements OnInit {
                 fabricantesEncontrados =>
                     (this.fabricantes = fabricantesEncontrados)
             );
+    }
+
+    handleExibirAcaoEditar(fabricante: Fabricante) {
+        return true;
+    }
+    handleExibirAcaoExcluir(fabricante: Fabricante) {
+        return true;
     }
 }

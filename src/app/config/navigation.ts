@@ -25,6 +25,12 @@ export const Navigation: MenuItem[] = [
                 icon: "pi pi-users",
                 routerLink: "/requisicoes",
             },
+            {
+                label: "Fornecedor",
+                icon: "fa fa-clipboard",
+                routerLink: "/fornecedores",
+
+            },
         ],
     },
     {

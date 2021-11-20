@@ -1,3 +1,4 @@
+import { Contato } from './contato';
 import { PessoaJurica } from "./pessoa-juridica";
 
 export interface Fabricante extends PessoaJurica {
@@ -6,6 +7,7 @@ export interface Fabricante extends PessoaJurica {
     nomeFantasia?:string;
     rg?:string;
     cnpj?:string;
+    contato?:Contato;
 
 
 }

@@ -10,6 +10,7 @@ import { FabricanteFormSectionComponent } from "./components/fabricante-form-sec
 import { FabricanteFormComponent } from "./components/fabricante-form/fabricante-form.component";
 import { FabricanteListaComponent } from "./components/fabricante-lista/fabricante-lista.component";
 import { FabricanteRoutingModule } from "./fabricante-routing.module";
+import { ContatoModule } from "../contato/contato.module";
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { FabricanteRoutingModule } from "./fabricante-routing.module";
         SharedModule,
         PrimengModule,
         PessoaJuridicaModule,
+        ContatoModule,
     ],
 })
 export class FabricanteModule {}

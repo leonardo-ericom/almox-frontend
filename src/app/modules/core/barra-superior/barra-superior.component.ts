@@ -16,7 +16,9 @@ export class BarraSuperiorComponent implements OnInit {
     ngOnInit(): void {
 
 
+
         this.items = Navigation;
+
 
     }
 }
