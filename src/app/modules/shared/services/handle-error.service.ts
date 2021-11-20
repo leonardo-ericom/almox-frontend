@@ -10,6 +10,7 @@ export class HandleErrorService {
     handleError(erro) {
         if(!erro || !erro.mensagem || !erro.mensagens) {
             this.messageService.add({severity: 'error', summary: "Erro inesperado!", life: 5000});
+            return;
         };
         const { mensagem, mensagens } = erro.error;
         for(const message of mensagens) {

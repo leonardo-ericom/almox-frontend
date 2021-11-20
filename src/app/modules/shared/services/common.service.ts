@@ -12,7 +12,7 @@ export class CommonService {
     private _url : string;
 
   constructor(private _http: HttpClient) {
-      this._url = `${environment.api.baseUrl}/common/`;
+      this._url = `${environment.api.baseUrl}/common`;
   }
 
   buscarEnumeradores() : Observable<any>{

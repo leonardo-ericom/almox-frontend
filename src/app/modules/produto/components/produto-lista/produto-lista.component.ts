@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ConfirmationService, MessageService } from 'primeng/api';
 import { Observable, Subscriber } from 'rxjs';
+import { Departamento } from 'src/app/model/departamento';
+import { Grupo } from 'src/app/model/grupo';
+import { DepartamentoService } from 'src/app/modules/departamento/services/departamento.service';
 
 import {
     criarConfiguracaoColuna,
@@ -11,6 +14,7 @@ import {
 import { CommonService } from '../../../shared/services/common.service';
 import { HandleErrorService } from '../../../shared/services/handle-error.service';
 import { Produto } from './../../../../model/produto';
+import { GrupoService } from './../../../grupo/grupo.service';
 
 @Component({
     selector: "produto-lista",
@@ -22,6 +26,8 @@ export class ProdutoListaComponent implements OnInit {
     produtos: Produto[];
     selecionados: Produto[];
     enums$: Observable<any>;
+    grupos$: Observable<Grupo[]>
+    departamentos$: Observable<Departamento[]>
     enumsSubscribe: Subscriber<any>;
     colunas: any[];
 
@@ -30,6 +36,8 @@ export class ProdutoListaComponent implements OnInit {
         private handleErrorService: HandleErrorService,
         private confirmationService: ConfirmationService,
         private commonService: CommonService,
+        private grupoService: GrupoService,
+        private departamentoService: DepartamentoService,
         private router: Router
     ) {}
 
@@ -59,6 +67,8 @@ export class ProdutoListaComponent implements OnInit {
             ),
             criarConfiguracaoColunaStatusAuditavel("Status"),
         ];
+        this.grupos$ = this.grupoService.buscarTodos();
+        this.departamentos$ = this.departamentoService.buscarTodos();
     }
 
     buscar(filtro: any): void {}

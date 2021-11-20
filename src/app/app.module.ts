@@ -1,15 +1,16 @@
-import { HashLocationStrategy, LocationStrategy } from "@angular/common";
-import { HttpClientModule } from "@angular/common/http";
-import { NgModule } from "@angular/core";
-import { FormsModule } from "@angular/forms";
-import { BrowserModule } from "@angular/platform-browser";
-import { BrowserAnimationsModule } from "@angular/platform-browser/animations";
-import { ConfirmationService, MessageService } from "primeng/api";
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
+import { NgModule } from '@angular/core';
+import { FormsModule } from '@angular/forms';
+import { BrowserModule } from '@angular/platform-browser';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { ConfirmationService, MessageService } from 'primeng/api';
 
-import { AppRoutingModule } from "./app-routing.module";
-import { AppComponent } from "./app.component";
-import { CoreModule } from "./modules/core/core.module";
-import { UsuarioModule } from "./modules/usuario/usuario.module";
+import { AppRoutingModule } from './app-routing.module';
+import { AppComponent } from './app.component';
+import { HttpInterceptorService } from './config/auth/http-interceptor.service';
+import { CoreModule } from './modules/core/core.module';
+import { UsuarioModule } from './modules/usuario/usuario.module';
 
 @NgModule({
     imports: [
@@ -26,6 +27,11 @@ import { UsuarioModule } from "./modules/usuario/usuario.module";
         { provide: LocationStrategy, useClass: HashLocationStrategy },
         MessageService,
         ConfirmationService,
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HttpInterceptorService,
+            multi: true,
+        },
     ],
     bootstrap: [AppComponent],
 })
