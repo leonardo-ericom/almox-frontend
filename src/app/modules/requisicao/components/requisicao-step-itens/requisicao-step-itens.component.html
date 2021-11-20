@@ -6,15 +6,18 @@
     (anterior)="stepAnterior()"
     (proximo)="proximoStep()"
 >
-    <div *ngIf="itemNoFormulario">
-        <item-requisicao-form [item]="itemNoFormulario"></item-requisicao-form>
+    <div class="card" *ngIf="registroNoFormulario">
+        <item-requisicao-form
+            (submit)="onFormularioSubmit($event)"
+            [item]="registroNoFormulario.item"
+        >
+        </item-requisicao-form>
     </div>
     <div class="card">
         <div class="p-fluid">
             <item-requisicao-lista
-                [itens]="itens"
-                (novo)="itemNoFormulario = $event"
-                (editar)="itemNoFormulario = $event"
+                [itens]="registros"
+                (editar)="onEditar($event)"
             ></item-requisicao-lista>
         </div>
 <<<<<<< HEAD

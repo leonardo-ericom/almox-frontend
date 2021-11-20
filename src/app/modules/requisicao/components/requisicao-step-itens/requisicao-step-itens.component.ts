@@ -15,8 +15,8 @@ import { RequisicaoStepMergeService } from "./../../services/requisicao-step-mer
     styleUrls: ["./requisicao-step-itens.component.scss"],
 })
 export class RequisicaoStepItensComponent implements OnInit {
-    itemNoFormulario: ItemRequisicao;
-    itens: ItemRequisicao[];
+    registroNoFormulario: any;
+    registros: ItemRequisicao[];
 
     constructor(
         private router: Router,
@@ -29,31 +29,8 @@ export class RequisicaoStepItensComponent implements OnInit {
 
     dialogItemRequisicao: DynamicDialogRef;
 
-    show() {
-        this.dialogItemRequisicao = this.dialogService.open(
-            ProdutoModalListaComponent,
-            {
-                header: "Choose a Product",
-                width: "70%",
-                contentStyle: { "max-height": "500px", overflow: "auto" },
-                baseZIndex: 10000,
-            }
-        );
-
-        this.dialogItemRequisicao.onClose.subscribe((produto: Produto) => {
-            if (produto) {
-                this.messageService.add({
-                    severity: "info",
-                    summary: "Product Selected",
-                    detail: produto.descricao,
-                });
-            }
-        });
-    }
-
     ngOnInit(): void {
-        console.log(this.stepMergeService.state);
-        this.itens = [
+        this.registros = [
             {
                 id: 1,
                 produto: {
@@ -80,13 +57,27 @@ export class RequisicaoStepItensComponent implements OnInit {
         ];
     }
 
+    onEditar({ rowIndex, item }) {
+        this.registroNoFormulario = { rowIndex, item: Object.assign({}, item) };
+    }
+
+    onFormularioSubmit(itemFormulario: ItemRequisicao) {
+        if (this.registroNoFormulario.rowIndex !== -1) {
+            this.registros[this.registroNoFormulario.rowIndex] = Object.assign(
+                {},
+                itemFormulario
+            );
+        } else {
+            this.registros.push(Object.assign({}, itemFormulario));
+        }
+        this.registroNoFormulario = null; // fecha o formulário
+    }
+
     stepAnterior() {
         this.router.navigate(["../informacoes"], {
             relativeTo: this.activatedRoute,
         });
     }
-
-    limpar(): void {}
 
     proximoStep() {}
 }

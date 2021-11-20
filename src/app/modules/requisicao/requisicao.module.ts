@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 import { ItemRequisicaoTabelaComponent } from './../item-requisicao/components/item-requisicao-table/item-requisicao-tabela.component';
+=======
+
+>>>>>>> 2cd5130... 	modified:   src/app/config/navigation.ts
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 
@@ -11,8 +15,6 @@ import { RequisicaoFormComponent } from "./components/requisicao-form/requisicao
 import { RequisicaoRoutingModule } from "./requisicao-routing.module";
 import { RequisicaoStepInformacoesComponent } from './components/requisicao-step-informacoes/requisicao-step-informacoes.component';
 import { RequisicaoStepItensComponent } from './components/requisicao-step-itens/requisicao-step-itens.component';
-import { ItemRequisicaoDialogComponent } from '../item-requisicao/components/item-requisicao-dialog/item-requisicao-dialog.component';
-import { ItemRequisicaoFormComponent } from '../item-requisicao/components/item-requisicao-form/item-requisicao-form.component';
 import { ItemRequisicaoModule } from '../item-requisicao/item_requisicao.module';
 
 @NgModule({

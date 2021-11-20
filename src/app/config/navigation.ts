@@ -1,4 +1,4 @@
-import { MenuItem } from 'primeng/api';
+import { MenuItem } from "primeng/api";
 
 export const Navigation: MenuItem[] = [
     {
@@ -20,9 +20,15 @@ export const Navigation: MenuItem[] = [
                 icon: "pi pi-tags",
                 routerLink: "/departamentos",
             },
+        ],
+    },
+    {
+        label: "Movimentos",
+        icon: "pi pi-sort-alt",
+        items: [
             {
                 label: "Requisições",
-                icon: "pi pi-users",
+                icon: "fa fa-th",
                 routerLink: "/requisicoes",
             },
         ],
@@ -31,17 +37,6 @@ export const Navigation: MenuItem[] = [
         label: "Financeiro",
         icon: "pi pi-money-bill",
         items: [],
-    },
-    {
-        label: "Movimentos",
-        icon: "pi pi-sort-alt",
-        items: [
-            {
-                label: "Requisicoes",
-                icon: "fa fa-th",
-                routerLink: "/requisicoes",
-            }
-        ],
     },
     {
         label: "Relatórios",
