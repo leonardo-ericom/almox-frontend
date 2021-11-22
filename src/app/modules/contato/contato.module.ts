@@ -7,6 +7,7 @@ import { NgModule } from "@angular/core";
 @NgModule({
 declarations: [ContatoFormSectionComponent],
 imports:[CommonModule, PrimengModule],
+exports:[ContatoFormSectionComponent]
 
 })
 

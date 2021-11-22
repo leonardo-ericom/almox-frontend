@@ -31,6 +31,18 @@ export const Navigation: MenuItem[] = [
                 icon: "fa fa-th",
                 routerLink: "/requisicoes",
             },
+            {
+                label: "Fabricante",
+                icon: "fa fa-industry",
+                routerLink: "/fabricantes",
+
+            },
+            {
+                label: "Fornecedor",
+                icon: "fa fa-clipboard",
+                routerLink: "/fornecedores",
+
+            },
         ],
     },
     {

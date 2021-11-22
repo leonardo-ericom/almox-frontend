@@ -40,6 +40,15 @@ const routes: Routes = [
                     ),
             },
             {
+
+                path: "fabricantes",
+                loadChildren: () =>
+                    import("../fabricante/fabricante.module").then(
+                        module => module.FabricanteModule
+
+                    ),
+            },
+{
                 path: "item-requisicao",
                 loadChildren: () =>
                     import("../item-requisicao/item_requisicao.module").then(
@@ -51,6 +60,14 @@ const routes: Routes = [
                 loadChildren: () =>
                     import("../requisicao/requisicao.module").then(
                         module => module.RequisicaoModule
+
+                    ),
+            },
+            {
+                path: "fornecedores",
+                loadChildren: () =>
+                    import("../fornecedor/fornecedor.module").then(
+                        module => module.FornecedorModule
                     ),
             },
         ],
