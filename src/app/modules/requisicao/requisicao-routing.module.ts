@@ -1,5 +1,6 @@
 import { NgModule } from "@angular/core";
 import { RouterModule, Routes } from "@angular/router";
+import { AuthguardService } from "../autenticacao/services/authguard.service";
 
 import { RequisicaoBuscaComponent } from "./components/requisicao-busca/requisicao-busca.component";
 import { RequisicaoFormComponent } from "./components/requisicao-form/requisicao-form.component";
@@ -18,7 +19,7 @@ const routes: Routes = [
                 component: RequisicaoStepInformacoesComponent,
             },
             { path: "itens", component: RequisicaoStepItensComponent },
-        ],
+        ]
     },
 ];
 

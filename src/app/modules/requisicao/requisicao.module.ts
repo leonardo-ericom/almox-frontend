@@ -10,6 +10,7 @@ import { RequisicaoFormComponent } from "./components/requisicao-form/requisicao
 import { RequisicaoRoutingModule } from "./requisicao-routing.module";
 import { RequisicaoStepInformacoesComponent } from './components/requisicao-step-informacoes/requisicao-step-informacoes.component';
 import { RequisicaoStepItensComponent } from './components/requisicao-step-itens/requisicao-step-itens.component';
+import { ItemRequisicaoModule } from '../item-requisicao/item_requisicao.module';
 
 @NgModule({
     declarations: [
@@ -25,6 +26,7 @@ import { RequisicaoStepItensComponent } from './components/requisicao-step-itens
         RequisicaoRoutingModule,
         PrimengModule,
         SharedModule,
+        ItemRequisicaoModule
     ],
 })
 export class RequisicaoModule {}
