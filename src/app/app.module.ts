@@ -1,16 +1,17 @@
 import { HashLocationStrategy, LocationStrategy } from '@angular/common';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ToastModule } from 'primeng/toast';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { HandleErrorHttpInterceptor } from './config/handle-error-http-interceptor';
 import { CoreModule } from './modules/core/core.module';
-import { UsuarioModule } from './modules/usuario/usuario.module';
-import { FabricanteFormComponent } from './modules/fabricante/fabricante-form/fabricante-form.component';
 
 @NgModule({
     imports: [
@@ -19,17 +20,20 @@ import { FabricanteFormComponent } from './modules/fabricante/fabricante-form/fa
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        UsuarioModule,
-        CoreModule
+        CoreModule,
+        ToastModule,
     ],
-    declarations: [
-        AppComponent,
-        FabricanteFormComponent
-    ],
+    declarations: [AppComponent],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: HandleErrorHttpInterceptor,
+            multi: true,
+        },
         MessageService,
-        ConfirmationService
+        ConfirmationService,
+        DialogService
     ],
     bootstrap: [AppComponent],
 })
