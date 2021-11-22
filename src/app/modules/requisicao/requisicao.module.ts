@@ -1,8 +1,3 @@
-<<<<<<< HEAD
-import { ItemRequisicaoTabelaComponent } from './../item-requisicao/components/item-requisicao-table/item-requisicao-tabela.component';
-=======
-
->>>>>>> 2cd5130... 	modified:   src/app/config/navigation.ts
 import { CommonModule } from "@angular/common";
 import { NgModule } from "@angular/core";
 

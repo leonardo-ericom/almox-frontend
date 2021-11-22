@@ -9,7 +9,7 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
                 readonly
                 (click)="onClick()"
                 [value]="value"
-                [placeholder]="placeholder"]
+                [placeholder]="placeholder"
                 pInputText
                 [disabled]="disabled"
             />

@@ -2,8 +2,6 @@ import { Component, OnInit } from "@angular/core";
 import { ActivatedRoute, Router } from "@angular/router";
 import { MessageService } from "primeng/api";
 import { DialogService, DynamicDialogRef } from "primeng/dynamicdialog";
-import { Produto } from "src/app/model/produto";
-import { ProdutoModalListaComponent } from "src/app/modules/produto/components/produto-modal-lista/produto-modal-lista.component";
 import { ProdutoService } from "src/app/modules/produto/services/produto.service";
 
 import { ItemRequisicao } from "./../../../../model/item-requisicao";
