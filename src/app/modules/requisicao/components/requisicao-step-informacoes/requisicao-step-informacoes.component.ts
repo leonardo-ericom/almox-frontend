@@ -16,10 +16,7 @@ export class RequisicaoStepInformacoesComponent implements OnInit {
     @ViewChild("formulario") formulario: NgForm;
     departamentos$: Observable<Departamento[]>;
 
-    dados = {
-        dataRequisicao: new Date(),
-        departamento: null,
-    };
+    dados:any;
 
     constructor(
         private router: Router,
@@ -31,6 +28,8 @@ export class RequisicaoStepInformacoesComponent implements OnInit {
     ngOnInit(): void {
         this.departamentos$ =
             this.departamentoService.buscarAssociadosUsuarioLogado();
+
+        this.dados = this.stepMergeService.state;
     }
 
     onSubmit() {

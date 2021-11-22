@@ -1,19 +1,21 @@
-import { Component, EventEmitter, Input, Output } from "@angular/core";
+import { ControlContainer, NgForm } from '@angular/forms';
+import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 import { DialogService, DynamicDialogRef } from "primeng/dynamicdialog";
 import { ProdutoModalListaComponent } from "src/app/modules/produto/components/produto-modal-lista/produto-modal-lista.component";
 
-import { ItemRequisicao } from "./../../../../model/item-requisicao";
+import { ItemRequisicao } from "../../../../model/item-requisicao";
 
 @Component({
     selector: "item-requisicao-form",
-    templateUrl: "./form.component.html",
+    templateUrl: "./item-requisicao-form.component.html",
     styleUrls: ["./form.component.scss"],
+    viewProviders: [{ provide: ControlContainer, useExisting: NgForm }],
 })
 export class ItemRequisicaoFormComponent {
-    @Input() item: ItemRequisicao = { produto: {} };
+    @Input() item: ItemRequisicao = {  };
     @Output() submit = new EventEmitter<ItemRequisicao>();
 
-    constructor(private dialogService: DialogService) {}
+    constructor(private dialogService: DialogService, public formulario: NgForm) {}
 
     dialogRefProduto: DynamicDialogRef;
 

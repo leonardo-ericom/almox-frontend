@@ -1,10 +1,10 @@
 <p-table [value]="itens" responsiveLayout="scroll">
     <ng-template pTemplate="caption">
         <div class="p-d-flex p-ai-center p-jc-between">
-            <div></div>
+            <div><h2>Lista de Itens</h2></div>
             <p-button
                 icon="pi pi-plus"
-                (click)="onEditar(-1, { produto: {} })"
+                (click)="handleEditar(-1, { })"
             ></p-button>
         </div>
     </ng-template>
@@ -21,6 +21,7 @@
             <td>{{ item.quantidade }}</td>
             <td>
                 <button
+                    type="button"
                     pButton
                     pRipple
                     class="
@@ -32,7 +33,7 @@
                     "
                     pTooltip="Editar"
                     tooltipPosition="bottom"
-                    (click)="onEditar(rowIndex, item)"
+                    (click)="handleEditar(rowIndex, item)"
                 >
                     <i
                         class="fa fa-fw fa-edit"
@@ -55,7 +56,7 @@
                     "
                     pTooltip="Excluir"
                     tooltipPosition="bottom"
-                    (click)="handleOnExcluir(rowData)"
+                    (click)="handleExcluir(rowIndex)"
                 >
                     <i
                         class="fa fa-fw fa-times"
@@ -71,7 +72,7 @@
     </ng-template>
     <ng-template pTemplate="summary">
         <div class="p-d-flex p-ai-center p-jc-between">
-            In total there are {{ products ? products.length : 0 }} products.
+            No total de {{ itens ? itens.length : 0 }} registros.
         </div>
     </ng-template>
 </p-table>

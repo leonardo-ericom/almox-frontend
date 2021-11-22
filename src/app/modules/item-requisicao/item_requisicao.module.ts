@@ -4,8 +4,8 @@ import { NgModule } from "@angular/core";
 import { PrimengModule } from "./../primeng/primeng.module";
 import { ProdutoModule } from "./../produto/produto.module";
 import { SharedModule } from "./../shared/shared.module";
-import { ItemRequisicaoFormComponent } from "./components/form/form.component";
-import { ItemRequisicaoListaComponent } from "./components/lista/lista.component";
+import { ItemRequisicaoFormComponent } from "./components/form/item-requisicao-form.component";
+import { ItemRequisicaoListaComponent } from "./components/lista/item-requisicao-lista.component";
 
 @NgModule({
     declarations: [ItemRequisicaoFormComponent, ItemRequisicaoListaComponent],

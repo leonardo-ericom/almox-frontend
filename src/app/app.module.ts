@@ -5,12 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ConfirmationService, MessageService } from 'primeng/api';
+import { DialogService } from 'primeng/dynamicdialog';
+import { ToastModule } from 'primeng/toast';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { HttpInterceptorService } from './config/auth/http-interceptor.service';
+import { HandleErrorHttpInterceptor } from './config/handle-error-http-interceptor';
 import { CoreModule } from './modules/core/core.module';
-import { UsuarioModule } from './modules/usuario/usuario.module';
 
 @NgModule({
     imports: [
@@ -19,19 +20,20 @@ import { UsuarioModule } from './modules/usuario/usuario.module';
         AppRoutingModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        UsuarioModule,
         CoreModule,
+        ToastModule,
     ],
     declarations: [AppComponent],
     providers: [
         { provide: LocationStrategy, useClass: HashLocationStrategy },
-        MessageService,
-        ConfirmationService,
         {
             provide: HTTP_INTERCEPTORS,
-            useClass: HttpInterceptorService,
+            useClass: HandleErrorHttpInterceptor,
             multi: true,
         },
+        MessageService,
+        ConfirmationService,
+        DialogService
     ],
     bootstrap: [AppComponent],
 })

@@ -1,3 +1,4 @@
+import { RequisicaoStepMergeService } from './../../services/requisicao-step-merge.service';
 import { Component, OnInit } from "@angular/core";
 import { NgForm } from "@angular/forms";
 import { ActivatedRoute, Router } from "@angular/router";
@@ -26,7 +27,8 @@ export class RequisicaoFormComponent
         private requisicaoService: RequisicaoService,
         private handleErrorService: HandleErrorService,
         private router: Router,
-        private activatedRoute: ActivatedRoute
+        private activatedRoute: ActivatedRoute,
+        private stepMergeService: RequisicaoStepMergeService
     ) {}
 
     ngOnInit(): void {
@@ -44,16 +46,17 @@ export class RequisicaoFormComponent
     }
 
     onSubmit(formulario: NgForm): void {
+        this.registro = this.stepMergeService.state;
+        console.log(this.registro)
+
         const httpSubscriber = this.editandoRegistroExistente
             ? this.requisicaoService.atualizar(this.registro.id, this.registro)
             : this.requisicaoService.criar(this.registro);
         httpSubscriber.subscribe(
-            () => this.router.navigate(["/requisicoes/"]),
-            error => this.handleErrorService.handleError(error)
+            () => this.router.navigate(["/requisicoes/"])
         );
     }
 
     onLimpar(): void {
-        this.registro = {};
     }
 }

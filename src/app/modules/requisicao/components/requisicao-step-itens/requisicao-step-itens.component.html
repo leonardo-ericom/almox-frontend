@@ -1,10 +1,8 @@
 <step
-    exibirBotaoProximo="true"
     exibirBotaoAnterior="true"
     titulo="Itens"
     subtitulo="Selecione os produtos"
     (anterior)="stepAnterior()"
-    (proximo)="proximoStep()"
 >
     <div class="card" *ngIf="registroNoFormulario">
         <item-requisicao-form
@@ -17,7 +15,8 @@
         <div class="p-fluid">
             <item-requisicao-lista
                 [itens]="registros"
-                (editar)="onEditar($event)"
+                (editar)="handleEditar($event)"
+                (excluir)="handleExcluir($event)"
             ></item-requisicao-lista>
         </div>
 <<<<<<< HEAD

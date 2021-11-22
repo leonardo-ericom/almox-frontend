@@ -30,35 +30,15 @@ export class RequisicaoStepItensComponent implements OnInit {
     dialogItemRequisicao: DynamicDialogRef;
 
     ngOnInit(): void {
-        this.registros = [
-            {
-                id: 1,
-                produto: {
-                    id: 1,
-                    descricao: "Escova de Dente",
-                    codigoBarras: "1HHY212JEENNXXIYUY",
-                    custoMedio: 130.0,
-                },
-                statusItemRequisicao: "Entregue",
-                quantidade: 5,
-            },
-
-            {
-                id: 2,
-                produto: {
-                    id: 2,
-                    descricao: "Escova de Cabelo",
-                    codigoBarras: "1HHY212JEENNXXIYUY",
-                    custoMedio: 130.0,
-                },
-                statusItemRequisicao: "Entregue",
-                quantidade: 6,
-            },
-        ];
+        this.registros = this.stepMergeService.state.itens;
     }
 
-    onEditar({ rowIndex, item }) {
+    handleEditar({ rowIndex, item }) {
         this.registroNoFormulario = { rowIndex, item: Object.assign({}, item) };
+    }
+
+    handleExcluir({ rowIndex }) {
+        this.registros.splice(rowIndex, 1);
     }
 
     onFormularioSubmit(itemFormulario: ItemRequisicao) {

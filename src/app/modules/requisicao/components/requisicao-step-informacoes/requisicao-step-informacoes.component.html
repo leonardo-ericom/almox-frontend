@@ -13,7 +13,8 @@
                     type="text"
                     id="dataRequisicao"
                     name="dataRequisicao"
-                    [(ngModel)]="dados.dataRequisicao"
+                    (ngModelChange)="dados.dataRequisicao = $event"
+                    [ngModel]="dados.dataRequisicao | date: 'dd/MM/yyyy'"
                     pInputText
                     readonly
                 />
