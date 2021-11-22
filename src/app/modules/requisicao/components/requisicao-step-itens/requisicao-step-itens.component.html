@@ -1,17 +1,23 @@
 <step
-    exibirBotaoProximo="true"
     exibirBotaoAnterior="true"
     titulo="Itens"
-    subtitulo="Selecione os itens"
+    subtitulo="Selecione os produtos"
     (anterior)="stepAnterior()"
-    (proximo)="proximoStep()"
 >
-    <div class="p-fluid">
-        <div class="p-fluid p-formgrid p-grid">
-            <div class="p-field p-col-12">
-                <label for="criadoPor">Nome</label>
-                <input type="text" id="nome" name="nome" pInputText required />
-            </div>
+    <div class="card" *ngIf="registroNoFormulario">
+        <item-requisicao-form
+            (submit)="onFormularioSubmit($event)"
+            [item]="registroNoFormulario.item"
+        >
+        </item-requisicao-form>
+    </div>
+    <div class="card">
+        <div class="p-fluid">
+            <item-requisicao-lista
+                [itens]="registros"
+                (editar)="handleEditar($event)"
+                (excluir)="handleExcluir($event)"
+            ></item-requisicao-lista>
         </div>
     </div>
 </step>

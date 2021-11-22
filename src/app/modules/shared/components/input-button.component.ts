@@ -3,22 +3,31 @@ import { Component, EventEmitter, Input, OnInit, Output } from "@angular/core";
 @Component({
     selector: "input-button",
     template: `
-        <span class="p-input-icon-right">
-            <i class="pi pi-spin pi-spinner"></i>
+        <div class="p-inputgroup">
             <input
                 style="cursor: pointer"
                 readonly
                 (click)="onClick()"
                 [value]="value"
-                [placeholder]="placeholder"]
+                [placeholder]="placeholder"
                 pInputText
                 [disabled]="disabled"
             />
-        </span>
+            <button
+                *ngIf="value"
+                type="button"
+                pButton
+                pRipple
+                icon="pi pi-times"
+                styleClass="p-button-danger"
+                (click)="onButtonRemoveClick()"
+            ></button>
+        </div>
     `,
 })
 export class InputButtonComponent {
-    @Input("click") clickEvent = new EventEmitter<any>();
+    @Output("onClick") clickEvent = new EventEmitter<any>();
+    @Output("remover") removeClickEvent = new EventEmitter<any>();
     @Input("value") value: string;
     @Input("placeholder") placeholder: string;
     @Input("disabled") disabled = false;
@@ -28,4 +37,6 @@ export class InputButtonComponent {
     onClick() {
         this.clickEvent.emit({});
     }
+
+    onButtonRemoveClick = () => this.removeClickEvent.emit({});
 }

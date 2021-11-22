@@ -19,8 +19,22 @@
         <div class="p-fluid p-formgrid p-grid">
             <div class="p-field p-col-4">
                 <label for="telefone1">Telefone</label>
-                <input #telefone1Control="ngModel" type="text" id="telefone1" name="telefone1" [(ngModel)]="contato.telefone1" pInputText required autofocus [readonly]="modoVisualizacao" />
-                <small class="p-invalid p-error" *ngIf="formulario.submitted && !telefone1Control.valid">
+                <p-inputMask
+                mask = "(99) 99999-9999"
+                placeholder="(99) 99999-9999"
+                    #telefone1Control="ngModel"
+                    type="number"
+                    id="telefone1"
+                    name="telefone1"
+                    [(ngModel)]="contato.telefone1"
+                    required
+                    autofocus
+                    [readonly]="modoVisualizacao"
+                    ></p-inputMask>
+                <small
+                    class="p-invalid p-error"
+                    *ngIf="formulario.submitted && !telefone1Control.valid"
+                >
                     Informe um telefone.
                 </small>
             </div>
@@ -41,8 +55,22 @@
         <div class="p-fluid p-formgrid p-grid">
             <div class="p-field p-col-4">
                 <label for="telefone2">Telefone</label>
-                <input #telefone2Control="ngModel" type="text" id="telefone2" name="telefone2" [(ngModel)]="contato.telefone2" pInputText required autofocus [readonly]="modoVisualizacao" />
-                <small class="p-invalid p-error" *ngIf="formulario.submitted && !telefone2Control.valid">
+                <p-inputMask
+                mask = "(99) 99999-9999"
+                placeholder="(99) 99999-9999"
+                    #telefone2Control="ngModel"
+                    type="number"
+                    id="telefone2"
+                    name="telefone2"
+                    [(ngModel)]="contato.telefone2"
+                    required
+                    autofocus
+                    [readonly]="modoVisualizacao"
+                ></p-inputMask>
+                <small
+                    class="p-invalid p-error"
+                    *ngIf="formulario.submitted && !telefone2Control.valid"
+                >
                     Informe um telefone.
                 </small>
             </div>
@@ -80,18 +108,43 @@
             </div>
             <div class="p-field p-col-4">
                 <label for="numero">Número</label>
-                <input #numeroControl="ngModel" type="text" id="numero" name="numero" [(ngModel)]="contato.numero" pInputText required autofocus [readonly]="modoVisualizacao" />
-                <small class="p-invalid p-error" *ngIf="formulario.submitted && !numeroControl.valid">
-
+                <input
+                    #numeroControl="ngModel"
+                    type="number"
+                    id="numero"
+                    name="numero"
+                    [(ngModel)]="contato.numero"
+                    pInputText
+                    required
+                    autofocus
+                    [readonly]="modoVisualizacao"
+                />
+                <small
+                    class="p-invalid p-error"
+                    *ngIf="formulario.submitted && !numeroControl.valid"
+                >
                     Informe o número.
                 </small>
             </div>
 
             <div class="p-field p-col-4">
                 <label for="cep">CEP</label>
-                <input #cepControl="ngModel" type="text" id="cep" name="cep" [(ngModel)]="contato.cep" pInputText required autofocus [readonly]="modoVisualizacao" />
-                <small class="p-invalid p-error" *ngIf="formulario.submitted && !cepControl.valid">
-
+                <p-inputMask
+                mask= "99999-999"
+                placeholder= "99999-999"
+                    #cepControl="ngModel"
+                    type="number"
+                    id="cep"
+                    name="cep"
+                    [(ngModel)]="contato.cep"
+                    required
+                    autofocus
+                    [readonly]="modoVisualizacao"
+                ></p-inputMask>
+                <small
+                    class="p-invalid p-error"
+                    *ngIf="formulario.submitted && !cepControl.valid"
+                >
                     Informe o número.
                 </small>
             </div>

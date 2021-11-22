@@ -18,7 +18,17 @@
 
         <div class="p-field p-col-3">
             <label for="codigoBarras">Código de Barras</label>
-            <input #codigoBarrasControl="ngModel" type="text" id="codigoBarras" name="codigoBarras" [(ngModel)]="produto.codigoBarras" pInputText autofocus [readonly]="modoVisualizacao" />
+            <input
+            maxlength="13"
+                #codigoBarrasControl="ngModel"
+                type="text"
+                id="codigoBarras"
+                name="codigoBarras"
+                [(ngModel)]="produto.codigoBarras"
+                pInputText
+                autofocus
+                [readonly]="modoVisualizacao"
+            />
         </div>
 
         <div class="p-field p-col-6">
