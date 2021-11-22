@@ -39,17 +39,18 @@
         <div class="p-fluid p-formgrid p-grid">
             <div class="p-field p-col-4">
                 <label for="telefone1">Telefone</label>
-                <input
+                <p-inputMask
+                mask = "(99) 99999-9999"
+                placeholder="(99) 99999-9999"
                     #telefone1Control="ngModel"
-                    type="text"
+                    type="number"
                     id="telefone1"
                     name="telefone1"
                     [(ngModel)]="contato.telefone1"
-                    pInputText
                     required
                     autofocus
                     [readonly]="modoVisualizacao"
-                />
+                    ></p-inputMask>
                 <small
                     class="p-invalid p-error"
                     *ngIf="formulario.submitted && !telefone1Control.valid"
@@ -88,17 +89,18 @@
         <div class="p-fluid p-formgrid p-grid">
             <div class="p-field p-col-4">
                 <label for="telefone2">Telefone</label>
-                <input
+                <p-inputMask
+                mask = "(99) 99999-9999"
+                placeholder="(99) 99999-9999"
                     #telefone2Control="ngModel"
-                    type="text"
+                    type="number"
                     id="telefone2"
                     name="telefone2"
                     [(ngModel)]="contato.telefone2"
-                    pInputText
                     required
                     autofocus
                     [readonly]="modoVisualizacao"
-                />
+                ></p-inputMask>
                 <small
                     class="p-invalid p-error"
                     *ngIf="formulario.submitted && !telefone2Control.valid"
@@ -181,7 +183,7 @@
                 <label for="numero">Número</label>
                 <input
                     #numeroControl="ngModel"
-                    type="text"
+                    type="number"
                     id="numero"
                     name="numero"
                     [(ngModel)]="contato.numero"
@@ -200,17 +202,18 @@
 
             <div class="p-field p-col-4">
                 <label for="cep">CEP</label>
-                <input
+                <p-inputMask
+                mask= "99999-999"
+                placeholder= "99999-999"
                     #cepControl="ngModel"
-                    type="text"
+                    type="number"
                     id="cep"
                     name="cep"
                     [(ngModel)]="contato.cep"
-                    pInputText
                     required
                     autofocus
                     [readonly]="modoVisualizacao"
-                />
+                ></p-inputMask>
                 <small
                     class="p-invalid p-error"
                     *ngIf="formulario.submitted && !cepControl.valid"
